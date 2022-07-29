@@ -35,6 +35,8 @@ import { SugerenciaComponent } from './modules/sugerencias/sugerencia/sugerencia
 import { AgregarSugerenciaComponent } from './modules/sugerencias/agregar-sugerencia/agregar-sugerencia.component';
 import { DatePipe } from '@angular/common';
 import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticias-listar/noticias-listar.component';
+import {ViewSugerenciasComponent} from "./modules/sugerencias/ver-sugerencias/view-sugerencias.component";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticia
     CarritoCompraComponent,
     CarritoSectionComponent,
     NoticiasListarComponent,
+    ViewSugerenciasComponent
   ],
   imports: [
     BrowserModule,
@@ -75,9 +78,11 @@ import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticia
     MatMenuModule,
     MatSortModule,
     NoticiasModule,
+    MatDialogModule,
   ],
   entryComponents: [LoginComponent, HeaderComponent],
-  providers: [DatePipe],
+  providers: [DatePipe,{ provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

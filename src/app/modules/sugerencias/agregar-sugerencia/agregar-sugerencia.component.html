@@ -1,43 +1,40 @@
 <div class="container-form">
-    <mat-card>
-        <form [formGroup]="ingresarSugerencia" (ngSubmit)="onSubmit()">
-            <h2 class="subtitulos-form">Detalles del libro</h2>
-            <mat-form-field class="campos-field">
-                <input matInput placeholder="Autor" formControlName="autor">
-            </mat-form-field>
+  <mat-card>
+    <form [formGroup]="ingresarSugerencia" (ngSubmit)="onSubmit()">
+      <h2 class="subtitulos-form">Detalles del libro</h2>
 
-            <mat-form-field class="campos-field">
-                <input matInput placeholder="Titulo" formControlName="titulo">a
-            </mat-form-field>
+      <mat-form-field class="campos-field">
+        <input matInput placeholder="Autor" formControlName="autor">
+      </mat-form-field>
 
-            <mat-form-field class="campos-field ">
-                <input matInput placeholder="Edicion" formControlName="edicion">
-            </mat-form-field>
+      <mat-form-field class="campos-field">
+        <input matInput placeholder="Titulo" formControlName="titulo">
+      </mat-form-field>
 
-            <mat-form-field class="campos-field ">
-                <input matInput placeholder="Editor" formControlName="editor">
-            </mat-form-field>
+      <mat-form-field class="campos-field ">
+        <input matInput placeholder="Solicitante" formControlName="ci_solicitante">
+      </mat-form-field>
 
-            <mat-form-field class="campos-field ">
-                <mat-label>Fecha de publicacion</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="fechapublicacion">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+      <mat-form-field class="campos-field ">
+        <mat-label>Fecha de publicacion</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" date-format="yyyy-MM-dd">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-            <mat-form-field class="campos-field">
-                <input matInput #input maxlength="13" placeholder="ISBN" formControlName="isbn">
-            </mat-form-field>
+      <mat-form-field class="campos-field">
+        <input matInput maxlength="13" placeholder="ISBN" formControlName="isbn">
+      </mat-form-field>
 
-            <h2 class="subtitulos-form">Razones de recomendación</h2>
-            <mat-form-field class="campos-field">
-                <textarea matInput placeholder="Razones de recomendación" formControlName="razones"></textarea>
-            </mat-form-field>
-            <button mat-raised-button [disabled] = "!ingresarSugerencia.valid" (click)="onSubmit()">Enviar</button>
-          <div *ngIf="isRegistered" class="alert alert-primary" role="alert">
-            ¡Has enviado enviado la sugerencia correctamente!
-          </div>
-        </form>
-    </mat-card>
+      <h2 class="subtitulos-form">Razones de recomendación</h2>
+      <mat-form-field class="campos-field">
+        <textarea matInput placeholder="Razones de recomendación" formControlName="razones"></textarea>
+      </mat-form-field>
+      <button mat-raised-button [disabled]="!ingresarSugerencia.valid" (click)="onSubmit()">Enviar</button>
+      <div *ngIf="isRegistered" class="alert alert-primary" role="alert">
+        ¡Has enviado enviado la sugerencia correctamente!
+      </div>
+    </form>
+  </mat-card>
 
 </div>

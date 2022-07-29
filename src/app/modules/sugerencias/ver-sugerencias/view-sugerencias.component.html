@@ -1,9 +1,4 @@
 <div class="container">
-  <mat-form-field appearance="standard">
-    <mat-label>Filtro</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-  </mat-form-field>
-
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="id_sugerencia">
       <th mat-header-cell *matHeaderCellDef> Id</th>
@@ -11,14 +6,10 @@
     </ng-container>
 
     <ng-container matColumnDef="nombreLibro">
-      <th mat-header-cell *matHeaderCellDef> Nombres</th>
+      <th mat-header-cell *matHeaderCellDef> Titulo</th>
       <td mat-cell *matCellDef="let element" class='m-card-title'> {{element.nombreLibro}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="isbn">
-      <th mat-header-cell *matHeaderCellDef> ISBN</th>
-      <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
-    </ng-container>
 
     <ng-container matColumnDef="autor">
       <th mat-header-cell *matHeaderCellDef> Autor</th>
@@ -27,12 +18,17 @@
 
     <ng-container matColumnDef="fecha">
       <th mat-header-cell *matHeaderCellDef> Fecha</th>
-      <td mat-cell *matCellDef="let element" class='has_label_on_mobile'> {{element.fecha}}</td>
+      <td mat-cell *matCellDef="let element" class='has_label_on_mobile'> {{formatDate(element.fecha)}}</td>
     </ng-container>
 
     <ng-container matColumnDef="ci_solicitante">
       <th mat-header-cell *matHeaderCellDef> CI Solicitante</th>
       <td mat-cell *matCellDef="let element">{{element.ci_solicitante}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="isbn">
+      <th mat-header-cell *matHeaderCellDef> ISBN</th>
+      <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
     </ng-container>
 
     <ng-container matColumnDef="modificar">
@@ -43,6 +39,11 @@
             <button mat-menu-item (click)="deleteSuggestions(element.id_sugerencia)">
               <mat-icon>delete</mat-icon>
               <span>Eliminar</span>
+            </button>
+
+            <button mat-menu-item (click)="editSuggest(element)">
+              <mat-icon>edit</mat-icon>
+              <span>Editar</span>
             </button>
           </mat-menu>
           <mat-icon>more_vert</mat-icon>

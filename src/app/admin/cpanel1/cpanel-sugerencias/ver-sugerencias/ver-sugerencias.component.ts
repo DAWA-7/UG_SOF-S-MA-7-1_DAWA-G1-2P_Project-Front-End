@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {Sugerencia} from "../../../../shared/interfaces/sugerencia";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -12,6 +13,9 @@ import {Sugerencia} from "../../../../shared/interfaces/sugerencia";
 export class VerSugerenciasComponent implements OnInit {
   dataSource: any = [];
   displayedColumns: string[] = ['id_sugerencia', 'nombreLibro', 'autor', 'fecha', 'ci_solicitante', 'modificar']
+
+  constructor(public dialog: MatDialog) {
+  }
 
   data = [{
     id_sugerencia: 1,
@@ -51,6 +55,11 @@ export class VerSugerenciasComponent implements OnInit {
 
   updateDataSource() {
     this.dataSource.data = this.data;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

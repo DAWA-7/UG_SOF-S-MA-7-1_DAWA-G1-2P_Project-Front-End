@@ -54,8 +54,7 @@ export class AgregarUserComponent implements OnInit {
 
   agregarUsuario() {
     if (!this.editarDatos && this.actionBtn === "Guardar") {
-      console.log("a")
-      const user: User = {
+      const user: User  = {
         cedula: this.userForm.value.cedula,
         nombres: this.userForm.value.nombres,
         usuario: this.userForm.value.usuario,

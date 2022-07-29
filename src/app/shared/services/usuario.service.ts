@@ -54,7 +54,6 @@ export class UsuarioService {
       );
       this.ELEMENT_DATA[index] = data;
     }
-    // return this.ELEMENT_DATA.fill(data)
   }
 
   getUserByCedula(usuario: string) {

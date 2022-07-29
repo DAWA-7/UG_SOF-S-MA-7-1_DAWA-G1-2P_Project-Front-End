@@ -37,21 +37,12 @@ export class ListarUserComponent implements OnInit {
 
   }
 
-  //↑
-
-  // cargaUsuario(){
-  //   this.listUsuario = this.usuerService.getUsuario();
-  //   this.dataSource = new MatTableDataSource(this.listUsuario);
-  // }
   editUsuario(element: any) {
     this.dialog.open(AgregarUserComponent, {
       data: element
     })
-
-
   }
 
-  //para filtrar por nombre
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
