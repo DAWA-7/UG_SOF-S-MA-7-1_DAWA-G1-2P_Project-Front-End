@@ -3,6 +3,8 @@
     height: 0;
     width: 170px;
   }
+}
 
-
+footer {
+  background-color: var(--pc-amparo-blue);
 }
