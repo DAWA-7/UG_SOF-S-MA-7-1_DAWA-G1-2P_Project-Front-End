@@ -1,5 +1,4 @@
 import { CatalogoService } from '../../services/catalogo.service';
-import { DetalleLibroComponent } from '../../../modules/catalogo/pages/detalle-libro/detalle-libro.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 

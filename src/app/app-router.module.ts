@@ -4,11 +4,8 @@ import { AgregarUserComponent } from './admin/cpanel1/cpanel-user/agregar-user/a
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './modules/auth/login/login.component';
-import { HomeComponent } from './modules/home/home.component';
-import { MostrarCatalogoComponent } from './modules/catalogo/pages/mostrar-catalogo/mostrar-catalogo.component';
 import { ListarUserComponent } from './admin/cpanel1/cpanel-user/listar-user/listar-user.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
-import { DetalleLibroComponent } from './modules/catalogo/pages/detalle-libro/detalle-libro.component';
 import { CPanelComponent } from './admin/cpanel1/cpanel.component';
 import { CPanelHomeComponent } from './admin/cpanel1/cpanel-home/cpanel-home.component';
 import { ModuleComponent } from './modules/module.component';
@@ -19,18 +16,11 @@ import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticia
 
 //route
 const routes: Routes = [
-  {
-    path: '',
-    component: ModuleComponent,
-    children: [
-      { path: '', component: HomeComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'home', component: HomeComponent },
-      { path: 'sugerencias', component: SugerenciaComponent },
-      { path: 'carrito-compras', component: CarritoCompraComponent },
-    ],
-  },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'sugerencias', component: SugerenciaComponent },
+  { path: 'carrito-compras', component: CarritoCompraComponent },
+
   {
     path: 'cpanel',
     component: CPanelComponent,
@@ -60,6 +50,12 @@ const routes: Routes = [
       import('./modules/noticias/noticias.module').then(
         (m) => m.NoticiasModule
       ),
+  },
+
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
   },
 ];
 
