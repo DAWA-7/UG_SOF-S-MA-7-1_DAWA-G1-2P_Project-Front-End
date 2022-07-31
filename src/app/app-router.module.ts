@@ -2,9 +2,7 @@ import { AgregarLibroComponent } from './admin/cpanel1/cpanel-libro/agregar-libr
 import { ListarLibroComponent } from './admin/cpanel1/cpanel-libro/listar-libro/listar-libro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './modules/auth/login/login.component';
 import { ListarUserComponent } from './admin/cpanel1/cpanel-user/listar-user/listar-user.component';
-import { RegisterComponent } from './modules/auth/register/register.component';
 import { CPanelComponent } from './admin/cpanel1/cpanel.component';
 import { CPanelHomeComponent } from './admin/cpanel1/cpanel-home/cpanel-home.component';
 import { VerSugerenciasComponent } from './admin/cpanel1/cpanel-sugerencias/ver-sugerencias/ver-sugerencias.component';
@@ -12,9 +10,6 @@ import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticia
 
 //route
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-
   {
     path: 'cpanel',
     component: CPanelComponent,
@@ -26,6 +21,22 @@ const routes: Routes = [
       { path: 'sugerencias', component: VerSugerenciasComponent },
       { path: 'noticias', component: NoticiasListarComponent },
     ],
+  },
+
+  // LogIn: module lazy loading
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./modules/auth/login/login.module').then((m) => m.LoginModule),
+  },
+
+  // Register: module lazy loading
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./modules/auth/register/register.module').then(
+        (m) => m.RegisterModule
+      ),
   },
 
   // Catalogo: module lazy loading

@@ -5,12 +5,10 @@ import { MaterialModule } from './shared/material/material.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/header/header.component';
 import { FooterComponent } from './modules/footer/footer.component';
-import { LoginComponent } from './modules/auth/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgregarUserComponent } from './admin/cpanel1/cpanel-user/agregar-user/agregar-user.component';
 import { ListarUserComponent } from './admin/cpanel1/cpanel-user/listar-user/listar-user.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { RegisterComponent } from './modules/auth/register/register.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -38,10 +36,10 @@ import {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
+
     ListarUserComponent,
     AgregarUserComponent,
-    RegisterComponent,
+
     CPanelComponent,
     CPanelHomeComponent,
     ListarLibroComponent,
@@ -65,7 +63,7 @@ import {
     MatSortModule,
     MatDialogModule,
   ],
-  entryComponents: [LoginComponent, HeaderComponent],
+  entryComponents: [HeaderComponent],
   providers: [
     DatePipe,
     { provide: MAT_DIALOG_DATA, useValue: {} },
