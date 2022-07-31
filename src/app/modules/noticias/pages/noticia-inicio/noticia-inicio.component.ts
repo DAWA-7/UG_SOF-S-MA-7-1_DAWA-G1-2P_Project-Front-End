@@ -22,8 +22,6 @@ export class NoticiaInicioComponent implements OnInit {
   ngOnInit(): void {}
 
   // #region Functions
-
   filterNewsByYear(listNews: News[], listYears: string[]) {}
-
   // #endregion
 }

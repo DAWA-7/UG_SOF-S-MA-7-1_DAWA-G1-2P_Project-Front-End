@@ -1,4 +1,4 @@
-import { CatalogoService } from '../../../shared/services/catalogo.service';
+import { CatalogoService } from '../../../../shared/services/catalogo.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 

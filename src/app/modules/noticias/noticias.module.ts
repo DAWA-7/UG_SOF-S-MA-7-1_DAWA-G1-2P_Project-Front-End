@@ -17,7 +17,7 @@ import { NoticiaArticulo1Component } from './components/noticia-articulo1/notici
     NoticiaCard2Component,
     NoticiaArticulo1Component,
   ],
-  imports: [CommonModule, SharedModule, NoticiasRoutingModule],
+  imports: [CommonModule, NoticiasRoutingModule, SharedModule],
 })
 export class NoticiasModule {} // import at app.modules.ts (old method)
 // import at app-router.module.ts with lazy loading

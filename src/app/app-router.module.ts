@@ -5,10 +5,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { HomeComponent } from './modules/home/home.component';
-import { MostrarCatalogoComponent } from './modules/catalogo/mostrar-catalogo/mostrar-catalogo.component';
+import { MostrarCatalogoComponent } from './modules/catalogo/pages/mostrar-catalogo/mostrar-catalogo.component';
 import { ListarUserComponent } from './admin/cpanel1/cpanel-user/listar-user/listar-user.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
-import { DetalleLibroComponent } from './modules/catalogo/detalle-libro/detalle-libro.component';
+import { DetalleLibroComponent } from './modules/catalogo/pages/detalle-libro/detalle-libro.component';
 import { CPanelComponent } from './admin/cpanel1/cpanel.component';
 import { CPanelHomeComponent } from './admin/cpanel1/cpanel-home/cpanel-home.component';
 import { ModuleComponent } from './modules/module.component';
@@ -27,8 +27,6 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'catalogo', component: MostrarCatalogoComponent },
-      { path: 'detalle-libro', component: DetalleLibroComponent },
       { path: 'sugerencias', component: SugerenciaComponent },
       { path: 'carrito-compras', component: CarritoCompraComponent },
     ],
@@ -44,6 +42,15 @@ const routes: Routes = [
       { path: 'sugerencias', component: VerSugerenciasComponent },
       { path: 'noticias', component: NoticiasListarComponent },
     ],
+  },
+
+  // Catalogo: module lazy loading
+  {
+    path: 'catalogo',
+    loadChildren: () =>
+      import('./modules/catalogo/catalogo.module').then(
+        (m) => m.CatalogoModule
+      ),
   },
 
   // Noticias: module lazy loading

@@ -1,4 +1,4 @@
-import { MostrarCatalogoComponent } from './modules/catalogo/mostrar-catalogo/mostrar-catalogo.component';
+import { MostrarCatalogoComponent } from './modules/catalogo/pages/mostrar-catalogo/mostrar-catalogo.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRouterModule } from './app-router.module';
@@ -16,7 +16,7 @@ import { RegisterComponent } from './modules/auth/register/register.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { DetalleLibroComponent } from './modules/catalogo/detalle-libro/detalle-libro.component';
+import { DetalleLibroComponent } from './modules/catalogo/pages/detalle-libro/detalle-libro.component';
 import { CPanelComponent } from './admin/cpanel1/cpanel.component';
 import { CPanelHomeComponent } from './admin/cpanel1/cpanel-home/cpanel-home.component';
 import { ModuleComponent } from './modules/module.component';

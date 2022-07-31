@@ -1,5 +1,5 @@
 import { CatalogoService } from '../../services/catalogo.service';
-import { DetalleLibroComponent } from '../../../modules/catalogo/detalle-libro/detalle-libro.component';
+import { DetalleLibroComponent } from '../../../modules/catalogo/pages/detalle-libro/detalle-libro.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -33,6 +33,6 @@ export class LibroComponent implements OnInit {
 
   openDetalle(itemDataSend: any) {
     this._service.changeNewsItem(itemDataSend);
-    this.router.navigate(['/detalle-libro']);
+    this.router.navigate(['/catalogo/detalle-libro']);
   }
 }
