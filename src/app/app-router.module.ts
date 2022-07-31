@@ -1,6 +1,5 @@
 import { AgregarLibroComponent } from './admin/cpanel1/cpanel-libro/agregar-libro/agregar-libro.component';
 import { ListarLibroComponent } from './admin/cpanel1/cpanel-libro/listar-libro/listar-libro.component';
-import { AgregarUserComponent } from './admin/cpanel1/cpanel-user/agregar-user/agregar-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './modules/auth/login/login.component';
@@ -8,8 +7,6 @@ import { ListarUserComponent } from './admin/cpanel1/cpanel-user/listar-user/lis
 import { RegisterComponent } from './modules/auth/register/register.component';
 import { CPanelComponent } from './admin/cpanel1/cpanel.component';
 import { CPanelHomeComponent } from './admin/cpanel1/cpanel-home/cpanel-home.component';
-import { ModuleComponent } from './modules/module.component';
-import { CarritoCompraComponent } from './modules/carrito-compra/carrito-compra.component';
 import { SugerenciaComponent } from './modules/sugerencias/sugerencia/sugerencia.component';
 import { VerSugerenciasComponent } from './admin/cpanel1/cpanel-sugerencias/ver-sugerencias/ver-sugerencias.component';
 import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticias-listar/noticias-listar.component';
@@ -19,7 +16,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'sugerencias', component: SugerenciaComponent },
-  { path: 'carrito-compras', component: CarritoCompraComponent },
 
   {
     path: 'cpanel',
@@ -52,6 +48,18 @@ const routes: Routes = [
       ),
   },
 
+  // Sugerencias: module lazy loading
+
+  // Carrito: module lazy loading
+  {
+    path: 'carrito',
+    loadChildren: () =>
+      import('./modules/carrito/carrito.module').then((m) => m.CarritoModule),
+  },
+
+  // CPanel: module lazy loading
+
+  // Home: module lazy loading, needs to be loaded last of all.
   {
     path: '',
     loadChildren: () =>
