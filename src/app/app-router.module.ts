@@ -45,6 +45,15 @@ const routes: Routes = [
       { path: 'noticias', component: NoticiasListarComponent },
     ],
   },
+
+  // Noticias: module lazy loading
+  {
+    path: 'noticias',
+    loadChildren: () =>
+      import('./modules/noticias/noticias.module').then(
+        (m) => m.NoticiasModule
+      ),
+  },
 ];
 
 @NgModule({

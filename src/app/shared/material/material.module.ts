@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,27 +16,27 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 
+const MaterialComponents = [
+  FlexLayoutModule,
+  FormsModule,
+  ReactiveFormsModule,
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatPaginatorModule,
+  MatSidenavModule,
+  MatSelectModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatToolbarModule,
+];
 @NgModule({
-  declarations: [],
-  exports: [
-    MatToolbarModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatTableModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatPaginatorModule,
-    FlexLayoutModule,
-    MatSidenavModule,
-    MatListModule,
-    MatGridListModule,
-    MatSelectModule,
-  ],
-  imports: [CommonModule],
+  exports: [MaterialComponents],
+  imports: [MaterialComponents],
 })
 export class MaterialModule {}

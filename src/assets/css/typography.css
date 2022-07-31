@@ -34,10 +34,11 @@
 }
 
 h1 {
+  /* font: 400 24px/32px Roboto,"Helvetica Neue", sans-serif; */
   font-family: var(--ff-fredoka);
   font-weight: var(--fw-regular);
   font-size: var(--fs-h1);
-  /* line-height:  ;*/
+  /* line-height: ; */
   letter-spacing: var(--ls-h1);
 }
 
@@ -50,43 +51,43 @@ h2 {
 }
 
 h3 {
-  font-family: var(--ff-fredoka);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h3);
+  font-family: var(--ff-fredoka) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-h3) !important;
   /* line-height: ;*/
-  letter-spacing: var(--ls-h3);
+  letter-spacing: var(--ls-h3) !important;
 }
 
 h4 {
-  font-family: var(--ff-fredoka);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h4);
+  font-family: var(--ff-fredoka) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-h4) !important;
   /* line-height: ;*/
-  letter-spacing: var(--ls-h4);
+  letter-spacing: var(--ls-h4) !important;
 }
 
 h5,
 a {
-  font-family: var(--ff-fredoka);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h4);
-  line-height: var(--lg-h5);
+  font-family: var(--ff-fredoka) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-h4) !important;
+  line-height: var(--lg-h5) !important;
   /* letter-spacing: ; */
 }
 
 p {
-  font-family: var(--ff-fresca);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-p);
-  line-height: var(--lg-p);
+  font-family: var(--ff-fresca) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-p) !important;
+  line-height: var(--lg-p) !important;
   /* letter-spacing: ; */
 }
 
 .typo-link {
-  font-family: var(--ff-fresca);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-p);
-  line-height: var(--lg-p);
-  color: var(--pc-amparo-blue);
-  text-decoration: underline;
+  font-family: var(--ff-fresca) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-p) !important;
+  line-height: var(--lg-p) !important;
+  color: var(--pc-amparo-blue) !important;
+  text-decoration: underline !important;
 }

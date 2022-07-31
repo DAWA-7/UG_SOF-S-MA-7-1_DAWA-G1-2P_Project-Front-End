@@ -23,7 +23,6 @@ import { ModuleComponent } from './modules/module.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { LibroComponent } from './shared/components/libro/libro.component';
 import { MatSortModule } from '@angular/material/sort';
-import { NoticiasModule } from './modules/noticias/noticias.module';
 import { ButtonPrimaryComponent } from './shared/components/buttons/button-primary/button-primary.component';
 import { ButtonSecondaryComponent } from './shared/components/buttons/button-secondary/button-secondary.component';
 import { AgregarLibroComponent } from './admin/cpanel1/cpanel-libro/agregar-libro/agregar-libro.component';
@@ -35,8 +34,13 @@ import { SugerenciaComponent } from './modules/sugerencias/sugerencia/sugerencia
 import { AgregarSugerenciaComponent } from './modules/sugerencias/agregar-sugerencia/agregar-sugerencia.component';
 import { DatePipe } from '@angular/common';
 import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticias-listar/noticias-listar.component';
-import {ViewSugerenciasComponent} from "./modules/sugerencias/ver-sugerencias/view-sugerencias.component";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import { ViewSugerenciasComponent } from './modules/sugerencias/ver-sugerencias/view-sugerencias.component';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -64,7 +68,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angula
     CarritoCompraComponent,
     CarritoSectionComponent,
     NoticiasListarComponent,
-    ViewSugerenciasComponent
+    ViewSugerenciasComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,12 +81,14 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angula
     MatGridListModule,
     MatMenuModule,
     MatSortModule,
-    NoticiasModule,
     MatDialogModule,
   ],
   entryComponents: [LoginComponent, HeaderComponent],
-  providers: [DatePipe,{ provide: MAT_DIALOG_DATA, useValue: {} },
-    { provide: MatDialogRef, useValue: {} }],
+  providers: [
+    DatePipe,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

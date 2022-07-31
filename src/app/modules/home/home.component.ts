@@ -2,8 +2,7 @@ import { Categoria } from '../../shared/interfaces/categoria';
 import { Component, OnInit } from '@angular/core';
 import { CatalogoService } from 'src/app/shared/services/catalogo.service';
 import { Book } from '../../shared/interfaces/book';
-import newsData from '../../../assets/json/News_MOCK_DATA.json';
-// import newsData2 from '../../../assets/ts/News_MOCK_DATA.ts';
+import { mockDataNews } from 'src/assets/ts/MOCK_DATA_News';
 import { News } from '../noticias/interfaces/news';
 import { NoticiasService } from 'src/app/shared/services/modules/noticias/noticias.service';
 import { Router } from '@angular/router';
@@ -116,7 +115,7 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  listNewsHighlight2: News[] = newsData;
+  listNewsHighlight2: News[] = mockDataNews;
 
   //#endregion
 
