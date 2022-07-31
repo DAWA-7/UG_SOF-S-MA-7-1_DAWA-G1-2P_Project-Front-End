@@ -24,11 +24,8 @@ import { ButtonSecondaryComponent } from './shared/components/buttons/button-sec
 import { AgregarLibroComponent } from './admin/cpanel1/cpanel-libro/agregar-libro/agregar-libro.component';
 import { ListarLibroComponent } from './admin/cpanel1/cpanel-libro/listar-libro/listar-libro.component';
 import { VerSugerenciasComponent } from './admin/cpanel1/cpanel-sugerencias/ver-sugerencias/ver-sugerencias.component';
-import { SugerenciaComponent } from './modules/sugerencias/sugerencia/sugerencia.component';
-import { AgregarSugerenciaComponent } from './modules/sugerencias/agregar-sugerencia/agregar-sugerencia.component';
 import { DatePipe } from '@angular/common';
 import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticias-listar/noticias-listar.component';
-import { ViewSugerenciasComponent } from './modules/sugerencias/ver-sugerencias/view-sugerencias.component';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -53,10 +50,7 @@ import {
     ButtonPrimaryComponent,
     ButtonSecondaryComponent,
     VerSugerenciasComponent,
-    SugerenciaComponent,
-    AgregarSugerenciaComponent,
     NoticiasListarComponent,
-    ViewSugerenciasComponent,
   ],
   imports: [
     BrowserModule,

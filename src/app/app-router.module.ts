@@ -7,7 +7,6 @@ import { ListarUserComponent } from './admin/cpanel1/cpanel-user/listar-user/lis
 import { RegisterComponent } from './modules/auth/register/register.component';
 import { CPanelComponent } from './admin/cpanel1/cpanel.component';
 import { CPanelHomeComponent } from './admin/cpanel1/cpanel-home/cpanel-home.component';
-import { SugerenciaComponent } from './modules/sugerencias/sugerencia/sugerencia.component';
 import { VerSugerenciasComponent } from './admin/cpanel1/cpanel-sugerencias/ver-sugerencias/ver-sugerencias.component';
 import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticias-listar/noticias-listar.component';
 
@@ -15,7 +14,6 @@ import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticia
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'sugerencias', component: SugerenciaComponent },
 
   {
     path: 'cpanel',
@@ -49,6 +47,13 @@ const routes: Routes = [
   },
 
   // Sugerencias: module lazy loading
+  {
+    path: 'sugerencias',
+    loadChildren: () =>
+      import('./modules/sugerencias/sugerencias.module').then(
+        (m) => m.SugerenciasModule
+      ),
+  },
 
   // Carrito: module lazy loading
   {
