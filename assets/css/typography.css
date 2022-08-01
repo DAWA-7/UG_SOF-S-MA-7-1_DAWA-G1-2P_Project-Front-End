@@ -1,0 +1,93 @@
+/** Typography Scale **/
+
+/** #region Font Family links */
+/* Fredoka one -> font-family: 'Fredoka One', cursive; */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+/* Fresca -> font-family: 'Fresca', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Fresca&display=swap");
+/* #endregion */
+
+:root {
+  /* Font Family (--ff) */
+  --ff-fredoka: "Fredoka One", cursive;
+  --ff-fresca: "Fresca", sans-serif;
+  /* Font Size (--fs-)*/
+  --fs-h1: 4rem; /* 64px */
+  --fs-h2: 2.5rem; /* 40px */
+  --fs-h3: 1.5rem; /* 24px */
+  --fs-h4: 1.25rem; /* 20px */
+  --fs-h5: 1rem; /* 16px */
+  --fs-p: 1rem; /* 16px */
+  /* Font Weight (--fw) */
+  --fw-bold: 700;
+  --fw-semi-bold: 600;
+  --fw-medium: 500;
+  --fw-regular: 400;
+  /* Line Height (--lh) */
+  --lg-h5: 22px; /* 22px */
+  --lg-p: 22px; /* 22px */
+  /* Letter Spacing (--ls) */
+  --ls-h1: -0.02em; /* 0.32px */
+  --ls-h2: -0.02em; /* 0.32px */
+  --ls-h3: -0.02em; /* 0.32px */
+  --ls-h4: -0.02em; /* 0.32px */
+}
+
+h1 {
+  /* font: 400 24px/32px Roboto,"Helvetica Neue", sans-serif; */
+  font-family: var(--ff-fredoka);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h1);
+  /* line-height: ; */
+  letter-spacing: var(--ls-h1);
+}
+
+h2 {
+  font-family: var(--ff-fredoka);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h2);
+  /* line-height: ;*/
+  letter-spacing: var(--ls-h2);
+}
+
+h3 {
+  font-family: var(--ff-fredoka) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-h3) !important;
+  /* line-height: ;*/
+  letter-spacing: var(--ls-h3) !important;
+}
+
+h4 {
+  font-family: var(--ff-fredoka) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-h4) !important;
+  /* line-height: ;*/
+  letter-spacing: var(--ls-h4) !important;
+}
+
+h5,
+a {
+  font-family: var(--ff-fredoka) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-h4) !important;
+  line-height: var(--lg-h5) !important;
+  /* letter-spacing: ; */
+}
+
+p {
+  font-family: var(--ff-fresca) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-p) !important;
+  line-height: var(--lg-p) !important;
+  /* letter-spacing: ; */
+}
+
+.typo-link {
+  font-family: var(--ff-fresca) !important;
+  font-weight: var(--fw-regular) !important;
+  font-size: var(--fs-p) !important;
+  line-height: var(--lg-p) !important;
+  color: var(--pc-amparo-blue) !important;
+  text-decoration: underline !important;
+}

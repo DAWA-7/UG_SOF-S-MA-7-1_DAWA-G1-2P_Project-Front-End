@@ -1,0 +1,24 @@
+/** Color Palette **/
+
+:root {
+  /* Primary Color (--pc-) */
+  --pc-amparo-blue: #4862af;
+  --pc-blue-hyacinth: #8494c2;
+  --pc-hole-in-one: #47ac96;
+  --pc-goldenrod-field: #f0ad50;
+  /* Secondary Color (--sc-)*/
+  --sc-1: #4f6c41;
+  --sc-2: #6c4141;
+  --sc-3: #af9548;
+  --sc-4: #c78f8f;
+  --sc-5: #5885bc;
+  --sc-6: #01705f;
+  --sc-7: #25467e;
+  --sc-8: #4895af;
+  --sc-9: #E4EDEB;
+  /* Tertiary Color & Emphasis (--tce-)*/
+  --tce-1: #ebebeb;
+  --tce-2: #8a8585;
+  --tce-3: #fd0808;
+  --tce-4: #82e1e3;
+}
