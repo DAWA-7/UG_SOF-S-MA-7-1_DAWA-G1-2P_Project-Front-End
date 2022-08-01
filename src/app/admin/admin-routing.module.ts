@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'libros', component: ListarLibroComponent },
       { path: 'noticias', component: NoticiasListarComponent },
       { path: 'sugerencias', component: VerSugerenciasComponent },
-      { path: '**', redirectTo: '' },
+      { path: '**', redirectTo: 'dashboard' },
     ],
   },
 ];
