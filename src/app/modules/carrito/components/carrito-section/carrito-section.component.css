@@ -1,231 +1,215 @@
 .example-card {
-    max-width: 400px;
-    margin-bottom: 8px;
-  }
-  
-  li{
-    display: inline;
-    font-size: 20px;
-  }
- 
+  max-width: 400px;
+  margin-bottom: 8px;
+}
 
- .cardF{
+li {
+  display: inline;
+  font-size: 20px;
+}
+
+.cardF {
   padding: 50px;
   background-color: var(--sc-9);
   border-radius: 30px;
   width: 500px;
   display: grid;
   place-content: center;
- 
- }
+}
 
- .gridDiv{
+.gridDiv {
   display: grid;
   grid-template-columns: 58% 35%;
-  
- }
+}
 
-
- .factura{
+.factura {
   background-color: var(--sc-9);
   border-radius: 30px;
   height: 430px;
- }
+}
 
- .row{
+.row {
   font-size: 16px;
   margin-left: 10px;
   margin-right: -10px;
-  
- }
+}
 
-
- /* PAYMENTSECTION CSS */
- .precio{
-    
-    justify-content: center;
-    margin-top: 20px;
-    display: flex;
-    
- }
-
+/* PAYMENTSECTION CSS */
+.precio {
+  justify-content: center;
+  margin-top: 20px;
+  display: flex;
+}
 
 .container {
-    justify-content: center;
-    max-width: 900px;
-    margin: 30px auto;
-    background-color: var(--sc-9);
-    padding: 35px;
-    border-radius: 20px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 30px auto;
+  background-color: var(--sc-9);
+  padding: 35px;
+  border-radius: 20px;
 }
 
 .box-right {
-    padding: 30px 25px;
-    background-color: white;
-    border-radius: 15px;
-    padding-bottom: 0px;
+  padding: 30px 25px;
+  background-color: white;
+  border-radius: 15px;
+  padding-bottom: 0px;
 }
 
 .box-left {
-    padding: 20px 20px;
-    background-color: white;
-    border-radius: 15px
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 15px;
 }
 
 .textmuted {
-    color: #7a7a7a
+  color: #7a7a7a;
 }
 
 .bg-green {
-    background-color: #d4f8f2;
-    color: #06e67a;
-    padding: 3px 0;
-    display: inline;
-    border-radius: 25px;
-    font-size: 11px
+  background-color: #d4f8f2;
+  color: #06e67a;
+  padding: 3px 0;
+  display: inline;
+  border-radius: 25px;
+  font-size: 11px;
 }
 
 .p-blue {
-    font-size: 14px;
-    color: #1976d2
+  font-size: 14px;
+  color: #1976d2;
 }
 
 .fas.fa-circle {
-    font-size: 12px
+  font-size: 12px;
 }
 
 .p-org {
-    font-size: 14px;
-    color: #fbc02d
+  font-size: 14px;
+  color: #fbc02d;
 }
 
-
-
 .bg-blue {
-    background-color: #dfe9fc9c;
-    border-radius: 5px
+  background-color: #dfe9fc9c;
+  border-radius: 5px;
 }
 
 .form-control {
-    box-shadow: none !important
+  box-shadow: none !important;
 }
 
 .card input::placeholder {
-    font-size: 14px
+  font-size: 14px;
 }
 
 ::placeholder {
-    font-size: 14px
+  font-size: 14px;
 }
 
 input.card {
-    position: relative
+  position: relative;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
+@media (max-width: 320px) {
+  .h8 {
+    font-size: 11px;
+  }
 
-@media(max-width:320px) {
-    .h8 {
-        font-size: 11px
-    }
+  .h7 {
+    font-size: 13px;
+  }
 
-    .h7 {
-        font-size: 13px
-    }
-
-    ::placeholder {
-        font-size: 10px
-    }
+  ::placeholder {
+    font-size: 10px;
+  }
 }
 
+/* ↑ */
 
- /* ↑ */
+/* PARA FORM DE DATOS */
 
+.loader {
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  display: flex;
+  background: white;
+  padding: 150px;
+  box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
+}
 
- /* PARA FORM DE DATOS */
+.loader span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #eee;
+  border-radius: 50%;
+  margin: 0 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
 
- .loader {
-    text-align: center;
-    vertical-align: middle;
-    position: relative;
-    display: flex;
-    background: white;
-    padding: 150px;
-    box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .loader span {
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: #eee;
-    border-radius: 50%;
-    margin: 0 5px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .loader span:nth-child(2) {
-    background: #f07e6e;
-  }
-  
-  .loader span:nth-child(3) {
-    background: #84cdfa;
-  }
-  
-  .loader span:nth-child(4) {
-    background: #5ad1cd;
-  }
-  
-  .loader span:not(:last-child) {
-    animation: animate 1.5s linear infinite;
-  }
-  
-  @keyframes animate {
-    0% {
-      transform: translateX(0);
-    }
-  
-    100% {
-      transform: translateX(30px);
-    }
-  }
-  
-  .loader span:last-child {
-    animation: jump 1.5s ease-in-out infinite;
-  }
-  
-  @keyframes jump {
-    0% {
-      transform: translate(0, 0);
-    }
-    10% {
-      transform: translate(10px, -10px);
-    }
-    20% {
-      transform: translate(20px, 10px);
-    }
-    30% {
-      transform: translate(30px, -50px);
-    }
-    70% {
-      transform: translate(-150px, -50px);
-    }
-    80% {
-      transform: translate(-140px, 10px);
-    }
-    90% {
-      transform: translate(-130px, -10px);
-    }
-    100% {
-      transform: translate(-120px, 0);
-    }
-  }
-  
+.loader span:nth-child(2) {
+  background: #f07e6e;
+}
 
-  /* ESTO ES APARTE  */
-  
+.loader span:nth-child(3) {
+  background: #84cdfa;
+}
+
+.loader span:nth-child(4) {
+  background: #5ad1cd;
+}
+
+.loader span:not(:last-child) {
+  animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(30px);
+  }
+}
+
+.loader span:last-child {
+  animation: jump 1.5s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(10px, -10px);
+  }
+  20% {
+    transform: translate(20px, 10px);
+  }
+  30% {
+    transform: translate(30px, -50px);
+  }
+  70% {
+    transform: translate(-150px, -50px);
+  }
+  80% {
+    transform: translate(-140px, 10px);
+  }
+  90% {
+    transform: translate(-130px, -10px);
+  }
+  100% {
+    transform: translate(-120px, 0);
+  }
+}
+
+/* ESTO ES APARTE  */
