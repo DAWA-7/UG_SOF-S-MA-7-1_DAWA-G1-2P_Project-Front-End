@@ -1,4 +1,4 @@
-import { CatalogoService } from '../../../../shared/services/catalogo.service';
+import { CatalogoService } from 'src/app/shared/services/catalogo/catalogo.service';
 import { Categoria } from '../../../../shared/interfaces/categoria';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../../../shared/interfaces/book';

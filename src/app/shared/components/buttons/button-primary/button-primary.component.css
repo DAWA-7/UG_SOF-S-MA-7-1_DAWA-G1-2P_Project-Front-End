@@ -11,3 +11,7 @@ button {
 button:hover {
   background-color: var(--pc-goldenrod-field);
 }
+
+i {
+  color: white;
+}

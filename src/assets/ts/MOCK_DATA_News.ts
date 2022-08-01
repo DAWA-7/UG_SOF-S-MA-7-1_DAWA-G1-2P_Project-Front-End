@@ -10,8 +10,7 @@ export const mockDataNews = [
   },
   {
     id: 2,
-    title:
-      'Wedding Weekend, The (Sing Now or Forever Hold Your Peace) (Shut Up and Sing)',
+    title: 'Wedding Weekend',
     author: 'Sidney Tollady',
     img: 'assets/img/modules/noticias/large/img-2.jpg',
     date: '02/17/2020',
@@ -65,7 +64,7 @@ export const mockDataNews = [
   },
   {
     id: 8,
-    title: 'Human Centipede II (Full Sequence), The',
+    title: 'Human Centipede II (Full Sequence)',
     author: 'Dag Lanahan',
     img: 'assets/img/modules/noticias/large/img-8.jpg',
     date: '02/19/2020',

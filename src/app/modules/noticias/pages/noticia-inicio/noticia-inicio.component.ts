@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import newsData from '../../assets/json/News_MOCK_DATA.json'; // inside module
-import newsData from '../../../../../assets/json/News_MOCK_DATA.json'; //inside shared assets
 import { mockDataNews } from 'src/assets/ts/MOCK_DATA_News';
-import { News } from '../../interfaces/news';
+import { News } from '../../../../shared/interfaces/news';
 
 @Component({
   selector: 'app-noticia-inicio',

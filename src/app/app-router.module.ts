@@ -1,28 +1,8 @@
-import { AgregarLibroComponent } from './admin/cpanel1/cpanel-libro/agregar-libro/agregar-libro.component';
-import { ListarLibroComponent } from './admin/cpanel1/cpanel-libro/listar-libro/listar-libro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListarUserComponent } from './admin/cpanel1/cpanel-user/listar-user/listar-user.component';
-import { CPanelComponent } from './admin/cpanel1/cpanel.component';
-import { CPanelHomeComponent } from './admin/cpanel1/cpanel-home/cpanel-home.component';
-import { VerSugerenciasComponent } from './admin/cpanel1/cpanel-sugerencias/ver-sugerencias/ver-sugerencias.component';
-import { NoticiasListarComponent } from './admin/cpanel1/cpanel-noticias/noticias-listar/noticias-listar.component';
 
 //route
 const routes: Routes = [
-  {
-    path: 'cpanel',
-    component: CPanelComponent,
-    children: [
-      { path: '', component: CPanelHomeComponent },
-      { path: 'libros', component: ListarLibroComponent },
-      { path: 'agregar-libros', component: AgregarLibroComponent },
-      { path: 'users', component: ListarUserComponent },
-      { path: 'sugerencias', component: VerSugerenciasComponent },
-      { path: 'noticias', component: NoticiasListarComponent },
-    ],
-  },
-
   // LogIn: module lazy loading
   {
     path: 'login',
@@ -74,6 +54,11 @@ const routes: Routes = [
   },
 
   // CPanel: module lazy loading
+  {
+    path: 'cpanel',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
 
   // Home: module lazy loading, needs to be loaded last of all.
   {

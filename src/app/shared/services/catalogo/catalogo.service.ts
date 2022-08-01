@@ -1,19 +1,15 @@
-import { Categoria } from '../../shared/interfaces/categoria';
-import { Component, OnInit } from '@angular/core';
-import { CatalogoService } from 'src/app/shared/services/catalogo/catalogo.service';
-import { Book } from '../../shared/interfaces/book';
-import { mockDataNews } from 'src/assets/ts/MOCK_DATA_News';
-import { News } from '../../shared/interfaces/news';
-import { NoticiasService } from 'src/app/shared/services/noticias/noticias.service';
-import { Router } from '@angular/router';
-
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+import { Categoria } from '../../interfaces/categoria';
+import { Injectable } from '@angular/core';
+import { Book } from '../../interfaces/book';
+import { BehaviorSubject } from 'rxjs';
+@Injectable({
+  providedIn: 'root',
 })
-export class HomeComponent implements OnInit {
-  //#region Variables
+export class CatalogoService {
+  private newsItemSource = new BehaviorSubject<string>('default message');
+  currentNewsItem = this.newsItemSource.asObservable();
+
+  categoria = 0;
 
   listCategorias: Categoria[] = [
     { id_categoria: 1, nombre_categoria: 'Ciencia Ficción' },
@@ -72,7 +68,7 @@ export class HomeComponent implements OnInit {
       id_libro: 4,
       autor: 'Jennifer Lynn Barnes',
       editorial: 'Molino',
-      id_categoria: 6 /*Juvenil, Terror*/,
+      id_categoria: 46 /*Juvenil, Terror*/,
       fecha_publicacion: new Date(17 / 3 / 2022),
       num_paginas: 448,
       isbn: '9788427223622',
@@ -115,30 +111,65 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  listNewsHighlight2: News[] = mockDataNews;
+  constructor() {}
 
-  //#endregion
+  getLibro() {
+    return this.listLibros.slice();
+  }
+  agregarLibro(data: Book) {
+    this.listLibros.unshift(data);
+  }
 
-  constructor(
-    private router: Router,
-    private _service: CatalogoService,
-    private serviceDataNews: NoticiasService
-  ) {}
+  updateLibro(data: Book) {
+    var id = this.listLibros.find((libro) => libro.id_libro == data.id_libro);
+    if (data.id_libro == id?.id_libro) {
+      var index = this.listLibros.findIndex(
+        (libro) => libro.id_libro == data.id_libro
+      );
+      this.listLibros[index] = data;
+    }
+  }
 
-  ngOnInit(): void {}
+  findLibro(id: number) {
+    var libro = this.listLibros.find((libro) => libro.id_libro == id);
+    return this.listLibros[id];
+  }
 
-  //#region Functions
+  changeNewsItem(newsItem: any) {
+    this.newsItemSource.next(newsItem);
+  }
+
   filtrarCategoria(
     listLibros: Book[],
     listCategoria: Categoria[],
     categoria: number
   ) {
-    return this._service.filtrarCategoria(listLibros, listCategoria, categoria);
+    var id = listCategoria.find((categ) => categ.id_categoria == categoria);
+    var libros = listLibros.filter(
+      (libro) => libro.id_categoria === id?.id_categoria
+    );
+
+    if (categoria > 0) {
+      libros;
+    } else if (categoria == 0) {
+      var libros = listLibros;
+    }
+    //var resultado = this.categoria >= 0 ? libros : listLibros;
+    console.log(categoria);
+    console.log(id);
+    console.log(libros);
+    /*
+    var lib = listLibros.filter((libro) => {
+      if (libro.id_categoria === id?.id_categoria) {
+        return libro;
+      }
+    });*/
+    return libros;
   }
 
-  openArticle(itemDataSend: any) {
-    this.serviceDataNews.changeNewsItem(itemDataSend);
-    this.router.navigate(['noticias/articulo']);
+  mostrarCategoria(id: number) {
+    var nom = this.listCategorias.find((categ) => categ.id_categoria == id);
+    console.log(nom?.nombre_categoria);
+    return nom?.nombre_categoria;
   }
-  //#endregion
 }

@@ -1,4 +1,4 @@
-import { CatalogoService } from '../../services/catalogo.service';
+import { CatalogoService } from '../../services/catalogo/catalogo.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
