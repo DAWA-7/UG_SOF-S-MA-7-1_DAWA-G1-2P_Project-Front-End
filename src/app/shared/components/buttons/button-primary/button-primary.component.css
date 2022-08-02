@@ -13,5 +13,5 @@ button:hover {
 }
 
 i {
-  color: white;
+  color: var(--tce-1);
 }

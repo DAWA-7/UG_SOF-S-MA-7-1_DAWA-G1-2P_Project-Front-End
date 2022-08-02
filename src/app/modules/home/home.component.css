@@ -7,19 +7,16 @@ app-libro {
   margin-bottom: 20px;
 }
 
-#listNewsHighlight img {
+#NewsHighlight {
+  /* max-width: 440px; */
+}
+
+#NewsHighlight img {
   object-fit: cover;
   width: 100%;
   max-height: 105px;
 }
 
-#listNewsHighlight p {
-  /* font-family: var(--ff-fredoka);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h4);
-  line-height: var(--lg-h5); */
-}
-
-#listNewsHighlight:hover {
+#NewsHighlight:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

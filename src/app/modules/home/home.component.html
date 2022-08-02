@@ -1,59 +1,72 @@
-<!-- #region Slider -->
-<div id="carouselExampleControls" class="carousel slide carousel-fade container-xl mt-5" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="assets/img/home/slide1.png" class="d-block w-100" data-bs-interval="10000" alt="descuento" />
-    </div>
-    <div class="carousel-item">
-      <img src="assets/img/home/slide2.png" class="d-block w-100" data-bs-interval="10000" alt="feria" />
-    </div>
-    <div class="carousel-item">
-      <img src="assets/img/home/slide3.png" class="d-block w-100" data-bs-interval="10000" alt="semana-libro" />
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<!-- #endregion -->
-
-<!-- #region Novedades Y Noticias-->
-<div class="container-xl mt-5">
-  <div class="row">
-    <!-- #region Novedades -->
-    <h1>NOVEDADES</h1>
-    <div class="col col-ms-2">
-      <div class="row row-cols-1 row-cols-sm-4 ms-3 me-3">
-        <app-libro class="col" [InputLibros]="libro" *ngFor="let libro of filtrarCategoria(listLibros, listCategorias, 0)">
-          {{libro}}
-        </app-libro>
+<div class="container-xl">
+  <!-- #region Slider -->
+  <div id="carouselExampleControls" class="carousel slide carousel-fade  mt-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/img/home/slide1.png" class="d-block w-100" data-bs-interval="10000" alt="descuento" />
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/home/slide2.png" class="d-block w-100" data-bs-interval="10000" alt="feria" />
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/home/slide3.png" class="d-block w-100" data-bs-interval="10000" alt="semana-libro" />
       </div>
     </div>
-    <!-- #endregion -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- #endregion -->
 
-    <!-- #region News highlight -->
-    <div class="col-11 col-md-4 ms-3">
-      <h1>Noticias destacadas</h1>
+  <!-- #region Novedades Y Noticias-->
+  <div class="mt-5">
+    <div class="row">
+      <!-- #region Novedades -->
+      <div class="col col-ms-2 ms-3">
+        <h1>NOVEDADES</h1>
 
-      <div id="listNewsHighlight" class="card mb-3" style="max-width: 440px" *ngFor="let item of listNewsHighlight2 | slice:0:6" (click)="openArticle(item)">
-        <div class="row">
-          <div class="col-md-5">
-            <img src="assets/img/noticias/small/{{item.img}}" class="img-fluid rounded-start" alt="autora" />
-          </div>
-          <div class="col-md-7 mr-2 modal-dialog-centered">
-            <p class="card-text">
-              {{item.title}}
-            </p>
-          </div>
+        <div class="row row-cols-1 row-cols-sm-4 me-3">
+          <app-libro class="col" [InputLibros]="libro" *ngFor="let libro of filtrarCategoria(listLibros, listCategorias, 0)">
+            {{libro}}
+          </app-libro>
         </div>
       </div>
+      <!-- #endregion -->
 
+      <!-- #region News highlight -->
+      <div class="col-11 col-md-4 ms-3">
+        <h1>Noticias destacadas</h1>
+
+        <div id="NewsHighlight" class="card mb-3" *ngFor="let item of listNewsHighlight | slice:0:7" (click)="openArticle(item)">
+          <div class="row">
+            <div class="col-md-5">
+              <img class="img-fluid rounded-start" src="assets/img/noticias/small/{{item.img}}" alt="item.img" />
+            </div>
+
+            <div class="col-md-7 mr-2 modal-dialog-centered">
+              <h5 class="card-text">
+                {{item.title}}
+              </h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- #endregion -->
     </div>
-    <!-- #endregion -->
+
+    <div>
+      <h1>H1</h1>
+      <h2>H2</h2>
+      <h3>H3</h3>
+      <h4>H4</h4>
+      <h5>H5</h5>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque perferendis beatae asperiores reiciendis eaque molestiae accusantium ratione facilis eveniet tenetur, quaerat qui porro nesciunt fugiat alias esse tempore sunt enim magnam similique corrupti dolor quis minima itaque! Id inventore iure fugiat adipisci assumenda obcaecati ullam temporibus corporis, nihil veniam perferendis? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit a voluptatibus ullam eligendi amet, ratione labore sunt at ducimus, cum blanditiis! Sunt, provident maiores. Est, ullam ex! Quo, reiciendis alias.</p>
+    </div>
   </div>
 </div>

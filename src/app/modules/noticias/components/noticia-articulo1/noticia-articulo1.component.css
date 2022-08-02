@@ -11,29 +11,3 @@ img {
 #head {
   margin: 60px;
 }
-
-h2 {
-  font-family: var(--ff-fredoka);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h2);
-  letter-spacing: var(--ls-h2);
-
-  /* margin-left: 98px; */
-  /* margin-top: 60px; */
-}
-
-h5 {
-  font-family: var(--ff-fredoka);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h4);
-  line-height: var(--lg-h5);
-  /* letter-spacing: ; */
-}
-
-p {
-  font-family: var(--ff-fresca);
-  font-weight: var(--fw-regular);
-  font-size: 1.5em;
-  line-height: 1.5em;
-  /* letter-spacing: ; */
-}

@@ -1,10 +1,10 @@
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
 header {
   background-color: var(--pc-amparo-blue);
   /* height: 64px; */
-}
-
-nav {
-  background-color: var(--pc-amparo-blue);
 }
 
 img {
@@ -14,24 +14,6 @@ img {
 a,
 li {
   color: var(--tce-1);
-}
-
-.icon-display {
-  transform: scale(2);
-  color: var(--tce-1);
-}
-
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-
-.btn-primary {
-  --bs-btn-bg: var(--pc-hole-in-one);
-  --bs-btn-hover-bg: var(--pc-goldenrod-field);
-}
-
-.btn-outline-light {
-  --bs-btn-hover-color: var(--pc-amparo-blue);
 }
 
 .active {
@@ -49,4 +31,12 @@ li {
 
 li :hover {
   color: var(--pc-goldenrod-field);
+}
+
+.icon-display {
+  transform: scale(2);
+}
+
+mat-icon {
+  color: var(--tce-1);
 }
