@@ -18,6 +18,7 @@ export class NoticiasListarComponent implements OnInit {
     'title',
     'author',
     'date', 
+    'opciones',
   ];
   displayedColumns2: {nameInterface: string, nameToShow: string}[] = [
     { nameInterface: 'id', nameToShow: 'ID' },
