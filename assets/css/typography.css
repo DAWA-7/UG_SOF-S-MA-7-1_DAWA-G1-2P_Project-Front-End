@@ -51,43 +51,43 @@ h2 {
 }
 
 h3 {
-  font-family: var(--ff-fredoka) !important;
-  font-weight: var(--fw-regular) !important;
-  font-size: var(--fs-h3) !important;
+  font-family: var(--ff-fredoka);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h3);
   /* line-height: ;*/
-  letter-spacing: var(--ls-h3) !important;
+  letter-spacing: var(--ls-h3);
 }
 
 h4 {
-  font-family: var(--ff-fredoka) !important;
-  font-weight: var(--fw-regular) !important;
-  font-size: var(--fs-h4) !important;
+  font-family: var(--ff-fredoka);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h4);
   /* line-height: ;*/
-  letter-spacing: var(--ls-h4) !important;
+  letter-spacing: var(--ls-h4);
 }
 
 h5,
 a {
-  font-family: var(--ff-fredoka) !important;
-  font-weight: var(--fw-regular) !important;
-  font-size: var(--fs-h4) !important;
-  line-height: var(--lg-h5) !important;
+  font-family: var(--ff-fredoka);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h4);
+  line-height: var(--lg-h5);
   /* letter-spacing: ; */
 }
 
 p {
-  font-family: var(--ff-fresca) !important;
-  font-weight: var(--fw-regular) !important;
-  font-size: var(--fs-p) !important;
-  line-height: var(--lg-p) !important;
+  font-family: var(--ff-fresca);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-p);
+  line-height: var(--lg-p);
   /* letter-spacing: ; */
 }
 
 .typo-link {
-  font-family: var(--ff-fresca) !important;
-  font-weight: var(--fw-regular) !important;
-  font-size: var(--fs-p) !important;
-  line-height: var(--lg-p) !important;
-  color: var(--pc-amparo-blue) !important;
-  text-decoration: underline !important;
+  font-family: var(--ff-fresca);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-p);
+  line-height: var(--lg-p);
+  color: var(--pc-amparo-blue);
+  text-decoration: underline;
 }
