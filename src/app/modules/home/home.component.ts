@@ -19,9 +19,7 @@ import {
 export class HomeComponent implements OnInit {
   //#region Variables
   listCategorias: Categoria[] = mockDataCategoria;
-
   listLibros: Book[] = mockDataLibros;
-
   listNewsHighlight: News[] = mockDataNews;
   //#endregion
 

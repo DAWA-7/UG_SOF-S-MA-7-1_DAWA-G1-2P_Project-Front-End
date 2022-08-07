@@ -41,25 +41,12 @@
       <!-- #region News highlight -->
       <div class="col-11 col-md-4 ms-3">
         <h1>Noticias destacadas</h1>
-
-        <div id="NewsHighlight" class="card mb-3" *ngFor="let item of listNewsHighlight | slice:0:7" (click)="openArticle(item)">
-          <div class="row">
-            <div class="col-md-5">
-              <img class="img-fluid rounded-start" src="assets/img/noticias/small/{{item.img}}" alt="item.img" />
-            </div>
-
-            <div class="col-md-7 mr-2 modal-dialog-centered">
-              <h5 class="card-text">
-                {{item.title}}
-              </h5>
-            </div>
-          </div>
-        </div>
-
+        <app-card-noticias [inputItem]="item" *ngFor="let item of listNewsHighlight | slice:0:7"></app-card-noticias>
       </div>
       <!-- #endregion -->
     </div>
 
+    <!-- TEST -->
     <div>
       <h1>H1</h1>
       <h2>H2</h2>
@@ -68,5 +55,6 @@
       <h5>H5</h5>
       <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque perferendis beatae asperiores reiciendis eaque molestiae accusantium ratione facilis eveniet tenetur, quaerat qui porro nesciunt fugiat alias esse tempore sunt enim magnam similique corrupti dolor quis minima itaque! Id inventore iure fugiat adipisci assumenda obcaecati ullam temporibus corporis, nihil veniam perferendis? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit a voluptatibus ullam eligendi amet, ratione labore sunt at ducimus, cum blanditiis! Sunt, provident maiores. Est, ullam ex! Quo, reiciendis alias.</p>
     </div>
+
   </div>
 </div>
