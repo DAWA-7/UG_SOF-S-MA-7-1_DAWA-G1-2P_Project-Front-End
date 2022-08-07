@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { mockDataNews } from 'src/assets/ts/MOCK_DATA_News';
-import { News } from '../../../../shared/interfaces/news';
+import { mockDataNoticias } from 'src/assets/ts/MOCK_DATA_Noticias';
+import { iNoticias } from 'src/app/shared/interfaces/noticias';
 
 @Component({
   selector: 'app-noticia-inicio',
@@ -10,7 +10,7 @@ import { News } from '../../../../shared/interfaces/news';
 })
 export class NoticiaInicioComponent implements OnInit {
   // #region Variable Declaration
-  listNews: News[] = mockDataNews;
+  listNews: iNoticias[] = mockDataNoticias;
   years = '';
   listYears: String[] = ['2022', '2021'];
   // #endregion
@@ -20,6 +20,6 @@ export class NoticiaInicioComponent implements OnInit {
   ngOnInit(): void {}
 
   // #region Functions
-  filterNewsByYear(listNews: News[], listYears: string[]) {}
+  filterNewsByYear(listNews: iNoticias[], listYears: string[]) {}
   // #endregion
 }

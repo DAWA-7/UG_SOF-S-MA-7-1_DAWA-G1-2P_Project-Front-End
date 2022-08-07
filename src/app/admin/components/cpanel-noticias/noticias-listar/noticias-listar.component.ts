@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { News } from 'src/app/shared/interfaces/news';
-import { mockDataNews } from 'src/assets/ts/MOCK_DATA_News';
+import { iNoticias } from 'src/app/shared/interfaces/noticias';
+import { mockDataNoticias } from 'src/assets/ts/MOCK_DATA_Noticias';
 
 @Component({
   selector: 'app-noticias-listar',
@@ -12,7 +12,7 @@ import { mockDataNews } from 'src/assets/ts/MOCK_DATA_News';
 export class NoticiasListarComponent implements OnInit {
   //#region Variables
   dataSource = new MatTableDataSource<any>;
-  listNews: News[] = [];
+  listNews: iNoticias[] = [];
   displayedColumns: string[] = [
     'id',
     'title',
@@ -31,7 +31,7 @@ export class NoticiasListarComponent implements OnInit {
   constructor(private dialog: MatDialog ) {}
 
   ngOnInit(): void {
-    this.listNews = mockDataNews;
+    this.listNews = mockDataNoticias;
     this.dataSource = new MatTableDataSource (this.listNews)
   }
 

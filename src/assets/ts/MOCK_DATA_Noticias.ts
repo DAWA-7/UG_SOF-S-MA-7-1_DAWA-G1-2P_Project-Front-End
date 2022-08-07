@@ -1,4 +1,4 @@
-export const mockDataNews = [
+export const mockDataNoticias = [
   {
     id: 1,
     title: 'K-20: The Fiend with Twenty Faces',

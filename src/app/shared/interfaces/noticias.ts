@@ -1,4 +1,4 @@
-export interface News {
+export interface iNoticias {
   id: number;
   title: string;
   author: string;
