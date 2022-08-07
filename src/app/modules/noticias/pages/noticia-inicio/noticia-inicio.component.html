@@ -1,29 +1,26 @@
 <div class="container-xl">
 
-  <!-- <mat-form-field>
+  <mat-form-field>
     <mat-label>Filtro</mat-label>
-    <input matInput appearance="outline" placeholder="Buscar" #input>
+    <input matInput appearance="outline" placeholder="Buscar" #input [(ngModel)]="searchTitle">
     <mat-icon matPrefix>search</mat-icon>
-  </mat-form-field> -->
+  </mat-form-field>
 
   <mat-sidenav-container class="news-container">
-    <!-- <mat-sidenav class="side-nav" mode="side" opened>
+    <mat-sidenav class="side-nav" mode="side" opened>
       <mat-action-list>
-        <button mat-list-item (click)="years= '2022'">
-          Recientes
-        </button>
 
-        <button mat-list-item *ngFor="let item of listYears" (click)="years = item+''">
+        <button mat-list-item *ngFor="let item of listYears" (click)="year = item">
           {{item}}
         </button>
       </mat-action-list>
-    </mat-sidenav> -->
+    </mat-sidenav>
 
     <mat-sidenav-content class="content">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
 
-          <app-noticia-card1 [itemDataInput]="item" *ngFor="let item of listNews"></app-noticia-card1>
+          <app-noticia-card1 [itemDataInput]="item" *ngFor="let item of filterByYearNoticias(listNoticias, year, searchTitle)"></app-noticia-card1>
 
         </div>
       </div>

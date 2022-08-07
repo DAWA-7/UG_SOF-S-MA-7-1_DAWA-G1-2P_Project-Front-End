@@ -13,7 +13,7 @@ export const mockDataNoticias = [
     title: 'Wedding Weekend',
     author: 'Sidney Tollady',
     img: 'img-2.jpg',
-    date: '02/17/2020',
+    date: '17/02/2020',
     content:
       'In congue. Etiam justo. Etiam pretium iaculis justo.\n\nIn hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.',
   },
@@ -31,7 +31,7 @@ export const mockDataNoticias = [
     title: 'Killer: A Journal of Murder',
     author: 'Betti Byrth',
     img: 'img-4.jpg',
-    date: '10/03/2021',
+    date: '03/10/2021',
     content:
       'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.',
   },
@@ -40,7 +40,7 @@ export const mockDataNoticias = [
     title: 'Man Who Fell to Earth, The',
     author: 'Debbi Clevely',
     img: 'img-5.jpg',
-    date: '02/04/2022',
+    date: '04/02/2022',
     content:
       'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\n\nMaecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.',
   },
@@ -49,7 +49,7 @@ export const mockDataNoticias = [
     title: 'Vampires, Les',
     author: 'May Kesterton',
     img: 'img-6.jpg',
-    date: '01/24/2022',
+    date: '24/01/2022',
     content:
       'In congue. Etiam justo. Etiam pretium iaculis justo.\n\nIn hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.',
   },
@@ -58,7 +58,7 @@ export const mockDataNoticias = [
     title: 'Osmosis (Osmose)',
     author: 'Meryl Craze',
     img: 'img-7.jpg',
-    date: '07/28/2020',
+    date: '28/07/2020',
     content:
       'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.\n\nNam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.',
   },
@@ -67,7 +67,7 @@ export const mockDataNoticias = [
     title: 'Human Centipede II (Full Sequence)',
     author: 'Dag Lanahan',
     img: 'img-8.jpg',
-    date: '02/19/2020',
+    date: '19/02/2020',
     content:
       'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
   },
@@ -85,7 +85,7 @@ export const mockDataNoticias = [
     title: 'Viy or Spirit of Evil (Viy)',
     author: 'Portia Camocke',
     img: 'img-10.jpg',
-    date: '12/18/2019',
+    date: '18/12/2019',
     content:
       'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.',
   },
