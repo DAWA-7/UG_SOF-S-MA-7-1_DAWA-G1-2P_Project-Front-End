@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { mockDataNoticias } from 'src/assets/ts/MOCK_DATA_Noticias';
+
 import { iNoticias } from 'src/app/shared/interfaces/noticias';
+import { mockDataNoticias } from 'src/assets/ts/MOCK_DATA_Noticias';
 
 @Component({
   selector: 'app-noticia-inicio',

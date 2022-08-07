@@ -20,7 +20,12 @@ export class HomeComponent implements OnInit {
   //#region Variables
   listCategorias: Categoria[] = mockDataCategoria;
   listLibros: Book[] = mockDataLibros;
-  listNewsHighlight: iNoticias[] = mockDataNoticias;
+  listNoticias: iNoticias[] = mockDataNoticias;
+  listCarousel: { imgSrc: string; imgAlt: string; carousel: string }[] = [
+    { imgSrc: 'slide1.png', imgAlt: 'feria', carousel: 'active' },
+    { imgSrc: 'slide2.png', imgAlt: 'descuento', carousel: '' },
+    { imgSrc: 'slide3.png', imgAlt: 'semana-libro', carousel: '' },
+  ];
   //#endregion
 
   constructor(
