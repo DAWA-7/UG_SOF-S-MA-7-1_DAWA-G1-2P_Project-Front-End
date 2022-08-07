@@ -14,18 +14,20 @@ export class NoticiaCard1Component implements OnInit {
   newsItem: any;
   // #endregion
 
-  constructor(private router: Router, private data: NoticiasService) {}
+  constructor(
+    private router: Router,
+    private serviceNoticias: NoticiasService
+  ) {}
 
   ngOnInit(): void {
-    this.data.currentNewsItem.subscribe(
+    this.serviceNoticias.currentItemNoticias.subscribe(
       (newsItem) => (this.newsItem = newsItem)
     );
   }
 
   // #region Functions
   openArticle(itemDataSend: any) {
-    this.data.changeNewsItem(itemDataSend);
-    this.router.navigate(['noticias/articulo']);
+    this.serviceNoticias.openArticle(itemDataSend);
   }
   // #endregion
 }

@@ -17,6 +17,10 @@ img {
   max-height: 190px;
 }
 
+mat-card-title {
+  min-height: 60px;
+}
+
 .typo-link {
   font-family: var(--ff-fresca);
   font-weight: var(--fw-regular);
@@ -27,8 +31,8 @@ img {
 }
 
 .typo-h5 {
-  font-family: var(--ff-fredoka);
+  /* font-family: var(--ff-fredoka);
   font-weight: var(--fw-regular);
   font-size: var(--fs-h4);
-  line-height: var(--lg-h5);
+  line-height: var(--lg-h5); */
 }

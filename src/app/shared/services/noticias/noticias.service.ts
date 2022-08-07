@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -6,14 +7,23 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class NoticiasService {
   //#region Variables
-  private newsItemSource = new BehaviorSubject<string>('default message');
-  currentNewsItem = this.newsItemSource.asObservable();
+  private sourceItemNoticias = new BehaviorSubject<string>('default message');
+  currentItemNoticias = this.sourceItemNoticias.asObservable();
   //#region
-  constructor() {}
+  constructor(private router: Router) {}
 
   //#region Functions
-  changeNewsItem(newsItem: any) {
-    this.newsItemSource.next(newsItem);
+  changeItemNoticias(newItemNoticias: any) {
+    this.sourceItemNoticias.next(newItemNoticias);
+  }
+
+  openArticle(itemDataSend: any) {
+    this.changeItemNoticias(itemDataSend);
+    var regexpReplaceSpace = / /g;
+    var regexpOnlyLetter = /[^a-zA-Z0-9 ]/g;
+    var newName = itemDataSend.title.replace(regexpOnlyLetter, '');
+    var newName = newName.replace(regexpReplaceSpace, '_');
+    this.router.navigate(['noticias/articulo/', newName]);
   }
   //#endregion
 }

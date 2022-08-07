@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private _service: CatalogoService,
-    private serviceDataNews: NoticiasService
+    private serviceNoticias: NoticiasService
   ) {}
 
   ngOnInit(): void {}
@@ -43,8 +43,7 @@ export class HomeComponent implements OnInit {
   }
 
   openArticle(itemDataSend: any) {
-    this.serviceDataNews.changeNewsItem(itemDataSend);
-    this.router.navigate(['noticias/articulo']);
+    this.serviceNoticias.openArticle(itemDataSend);
   }
   //#endregion
 }

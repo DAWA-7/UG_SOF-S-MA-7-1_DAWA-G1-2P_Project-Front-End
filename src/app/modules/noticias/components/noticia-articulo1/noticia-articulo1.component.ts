@@ -16,7 +16,7 @@ export class NoticiaArticulo1Component implements OnInit {
   constructor(private data: NoticiasService) {}
 
   ngOnInit(): void {
-    this.data.currentNewsItem.subscribe(
+    this.data.currentItemNoticias.subscribe(
       (newsItem) => (this.newsItem = newsItem)
     );
     this.itemDataInput = this.newsItem;
