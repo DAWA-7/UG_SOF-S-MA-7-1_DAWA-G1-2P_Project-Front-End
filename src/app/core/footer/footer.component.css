@@ -5,6 +5,17 @@
   }
 }
 
-footer {
+footer,
+a {
+  color: var(--sc-9);
+}
+
+#content {
   background-color: var(--pc-amparo-blue);
+}
+
+image {
+  /* width: "170";
+  height: "100";
+  margin-top: 15px; */
 }

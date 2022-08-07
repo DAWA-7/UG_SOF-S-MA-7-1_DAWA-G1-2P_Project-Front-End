@@ -4,6 +4,7 @@
 }
 
 button {
+  font-family: var(--ff-fredoka);
   background-color: var(--pc-amparo-blue);
   color: var(--tce-1);
   /* border: 2px solid var(--tce-1); */

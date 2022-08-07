@@ -28,6 +28,7 @@ export class NoticiaInicioComponent implements OnInit {
 
   year = '';
   searchTitle = '';
+  value = '';
   // #endregion
 
   constructor() {
@@ -43,6 +44,8 @@ export class NoticiaInicioComponent implements OnInit {
     searchTitle: string
   ) {
     var listFiltered;
+    // Ignore accent in char
+    searchTitle = searchTitle.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     if (searchTitle != '') {
       listFiltered = listNoticias.filter((obj) =>
         obj.title.toLowerCase().includes(searchTitle.toLowerCase())
