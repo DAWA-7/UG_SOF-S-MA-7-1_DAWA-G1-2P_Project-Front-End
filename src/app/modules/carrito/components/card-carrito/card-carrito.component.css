@@ -1,0 +1,18 @@
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+  }
+  
+  li {
+    display: inline;
+    font-size: 20px;
+  }
+  
+  .cardF {
+    padding: 50px;
+    background-color: var(--sc-9);
+    border-radius: 30px;
+    width: 500px;
+    display: grid;
+    place-content: center;
+  }
