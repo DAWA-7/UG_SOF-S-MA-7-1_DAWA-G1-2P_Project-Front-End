@@ -1,1 +1,5 @@
-export const mockDataCarrito = [];
+export const mockDataCarrito = [
+    {
+        unidad: 0
+    }
+];

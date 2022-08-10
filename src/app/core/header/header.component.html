@@ -18,7 +18,7 @@
         </ul>
 
         <a [routerLink]="'/carrito/compra'">
-          <mat-icon>shopping_cart</mat-icon>
+          <mat-icon>shopping_cart</mat-icon>{{itemCount()}}
         </a>
 
         <form *ngIf="userName == ''">

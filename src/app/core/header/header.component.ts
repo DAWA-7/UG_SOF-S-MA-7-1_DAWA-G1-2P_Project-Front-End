@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CarritoService } from 'src/app/shared/services/carrito/carrito.service';
 import { WindowModelService } from '../../shared/services/window-model.service';
 
 @Component({
@@ -29,7 +30,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private service: WindowModelService,
     // private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private cartService: CarritoService
   ) {
     this.service.$modal.subscribe((valor) => {
       this.userName = valor;
@@ -58,6 +60,10 @@ export class HeaderComponent implements OnInit {
 
   openCPanel() {
     this.router.navigate(['/cpanel']);
+  }
+
+  itemCount(){
+    return this.cartService.itemCount()
   }
 
   // ! Mantener constante al usuario logeado hasta que salga
