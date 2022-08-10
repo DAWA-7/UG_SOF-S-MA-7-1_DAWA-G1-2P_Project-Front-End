@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg container-xl">
     <div class="container-fluid">
 
-      <a class="navbar-brand" [routerLink]="listNavItem[0].address">Bookish Bookshop</a>
+      <a class="tp-h5 navbar-brand" [routerLink]="listNavItem[0].address">Bookish Bookshop</a>
 
       <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li [routerLinkActive]="'active'" class="nav-item" *ngFor="let item of listNavItem">
-            <a class="nav-link" [routerLink]="item.address"> {{item.name}} </a>
+            <a class="tp-h5 nav-link" [routerLink]="item.address"> {{item.name}} </a>
           </li>
         </ul>
 

@@ -1,17 +1,11 @@
 /** Typography Scale **/
 
-/** #region Font Family links */
-/* Fredoka one -> font-family: 'Fredoka One', cursive; */
-/* @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"); */
-/* Fresca -> font-family: 'Fresca', sans-serif; */
-/* @import url("https://fonts.googleapis.com/css2?family=Fresca&display=swap"); */
-/* #endregion */
-
 :root {
   /* Font Family (--ff) */
   --ff-fredoka: "Fredoka One", cursive;
   --ff-fresca: "Fresca", sans-serif;
   /* Font Size (--fs-)*/
+  font-size: 16px;
   --fs-h1: 4rem; /* 64px */
   --fs-h2: 2.5rem; /* 40px */
   --fs-h3: 1.5rem; /* 24px */
@@ -24,19 +18,26 @@
   --fw-medium: 500;
   --fw-regular: 400;
   /* Line Height (--lh) */
-  --lh-h5: 1.375rem; /* 22px */
-  --lh-p: 1.8rem; /* 22px */
+  --lh-h5: 1.375em; /* 22px */
+  --lh-p: 1.8em; /* 22px */
   /* Letter Spacing (--ls) */
-  --ls-h1: -0.02rem; /* 0.32px */
-  --ls-h2: -0.02rem; /* 0.32px */
-  --ls-h3: -0.02rem; /* 0.32px */
-  --ls-h4: -0.02rem; /* 0.32px */
+  --ls-h1: -0.02em; /* 0.32px */
+  --ls-h2: -0.02em; /* 0.32px */
+  --ls-h3: -0.02em; /* 0.32px */
+  --ls-h4: -0.02em; /* 0.32px */
+  --ls-button: 0.06em
+  /* Break Points (--bp) */
+  --bp-xl: 1140px;
+  --bp-lg: 960px;
+  --bp-md: 720px;
+  --bp-sm: 540px;
 }
 
-button {
-  font-family: var(--ff-fredoka);
+body {
+  /* font-family: var(--ff-fredoka); */
 }
 
+.tp-h1,
 h1 {
   font-family: var(--ff-fredoka);
   font-weight: var(--fw-regular);
@@ -45,14 +46,16 @@ h1 {
   letter-spacing: var(--ls-h1);
 }
 
+.tp-h2,
 h2 {
   font-family: var(--ff-fredoka);
   font-weight: var(--fw-regular);
-  font-size: var(--fs-h2);
+  font-size: var(--fs-p);
   /* line-height: ;*/
   letter-spacing: var(--ls-h2);
 }
 
+.tp-h3,
 h3 {
   font-family: var(--ff-fredoka);
   font-weight: var(--fw-regular);
@@ -61,6 +64,7 @@ h3 {
   letter-spacing: var(--ls-h3);
 }
 
+.tp-h4,
 h4 {
   font-family: var(--ff-fredoka);
   font-weight: var(--fw-regular);
@@ -69,8 +73,8 @@ h4 {
   letter-spacing: var(--ls-h4);
 }
 
-h5,
-a {
+.tp-h5,
+h5{
   font-family: var(--ff-fredoka);
   font-weight: var(--fw-regular);
   font-size: var(--fs-h4);
@@ -78,6 +82,8 @@ a {
   /* letter-spacing: ; */
 }
 
+
+.tp-body,
 p {
   font-family: var(--ff-fresca);
   font-weight: var(--fw-regular);
@@ -86,11 +92,20 @@ p {
   /* letter-spacing: ; */
 }
 
-.typo-link {
-  font-family: var(--ff-fresca);
+.tp-button {
+  font-family: var(--ff-fredoka) !important;
   font-weight: var(--fw-regular);
   font-size: var(--fs-p);
-  line-height: var(--lg-p);
-  color: var(--pc-amparo-blue);
-  text-decoration: underline;
+  /* line-height: var(--lh-p); */
+  letter-spacing: var(--ls-button);
+  /* text-transform: uppercase; */
+}
+
+.tp-link {
+  font-family: var(--ff-fresca)!important;
+  font-weight: var(--fw-regular)!important;
+  font-size: var(--fs-p)!important;
+  line-height: var(--lh-p)!important;
+  color: var(--pc-amparo-blue) !important;
+  text-decoration: underline !important;
 }

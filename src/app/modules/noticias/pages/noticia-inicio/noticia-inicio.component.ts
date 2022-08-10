@@ -50,6 +50,7 @@ export class NoticiaInicioComponent implements OnInit {
       listFiltered = listNoticias.filter((obj) =>
         obj.title.toLowerCase().includes(searchTitle.toLowerCase())
       );
+      this.year = '';
     } else if (year == 'Mostrar todo' || year == '') {
       listFiltered = listNoticias;
     } else {

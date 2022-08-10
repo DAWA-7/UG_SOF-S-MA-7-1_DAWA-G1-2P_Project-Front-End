@@ -2,7 +2,7 @@
 
   <mat-form-field>
     <mat-label>Filtro</mat-label>
-    <input matInput type="text" appearance="outline" placeholder="Buscar" #input [(ngModel)]="searchTitle">
+    <input matInput type="text" appearance="outline" placeholder="Búsqueda global" #input [(ngModel)]="searchTitle">
     <button *ngIf="searchTitle" matSuffix mat-icon-button aria-label="Clear" (click)="searchTitle=''">
       <mat-icon>close</mat-icon>
     </button>

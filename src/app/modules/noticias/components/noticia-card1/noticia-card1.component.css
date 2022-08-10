@@ -21,14 +21,14 @@ mat-card-title {
   min-height: 60px;
 }
 
-.typo-link {
+/* .typo-link {
   font-family: var(--ff-fresca);
   font-weight: var(--fw-regular);
   font-size: var(--fs-p);
   line-height: var(--lg-p);
   color: var(--pc-amparo-blue);
   text-decoration: underline;
-}
+} */
 
 .typo-h5 {
   /* font-family: var(--ff-fredoka);
