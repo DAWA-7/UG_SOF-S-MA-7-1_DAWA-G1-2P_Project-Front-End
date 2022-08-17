@@ -10,11 +10,11 @@
       <div class="container principal">
         <h1>{{InputLibros.titulo}}</h1>
         <p>{{InputLibros.autor}}</p>
-        <div class="agotado">
+        <h2>${{InputLibros.precio.toFixed(2)}} <i>*incluye IVA</i></h2>
+        <div *ngIf="InputLibros.cantidad == 0" class="agotado">
           <p>Agotado</p>
         </div>
-        <h2>${{InputLibros.precio.toFixed(2)}} <i>*incluye IVA</i></h2>
-        <button mat-flat-button color="primary" (click)="addCart()">
+        <button mat-flat-button color="primary" [disabled]="InputLibros.cantidad == 0" (click)="addCart()">
           <mat-icon>add_shopping_cart</mat-icon>Agregar al carrito
         </button>
       </div>

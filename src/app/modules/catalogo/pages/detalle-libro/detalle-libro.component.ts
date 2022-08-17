@@ -13,10 +13,14 @@ export class DetalleLibroComponent implements OnInit {
   InputLibros: any;
   newsItem: any;
 
-  constructor(private _service: CatalogoService, public datepipe: DatePipe, private cartService: CarritoService) {}
+  constructor(
+    private _service: CatalogoService,
+    public datepipe: DatePipe,
+    private cartService: CarritoService
+  ) {}
 
   ngOnInit(): void {
-    this._service.currentNewsItem.subscribe(
+    this._service.currentItemLibros.subscribe(
       (newsItem) => (this.newsItem = newsItem)
     );
     /*this._service.currentNewsItem.subscribe(
@@ -35,27 +39,17 @@ export class DetalleLibroComponent implements OnInit {
   }
 
   //parte agreagada por Dávila↓
-  libros: Book| undefined
-  addCart(){
-    console.log(this.InputLibros)
-    
-    if(this.cartService.exist(this.InputLibros)){
-      window.alert("Ya añadiste este libro a tu carrito")
-    }
-    else{
-      this.cartService.addToCart(this.InputLibros)
-      window.alert("Libro añadido a tu carrito")
-    
-    }
-    
-    
+  libros: Book | undefined;
+  addCart() {
+    console.log(this.InputLibros);
 
-    
-    
+    if (this.cartService.exist(this.InputLibros)) {
+      window.alert('Ya añadiste este libro a tu carrito');
+    } else {
+      this.cartService.addToCart(this.InputLibros);
+      window.alert('Libro añadido a tu carrito');
+    }
   }
 
-
-  
-  
   //fin parte agregada por Dávila↑
 }

@@ -25,7 +25,7 @@ export class LibroComponent implements OnInit {
   constructor(private router: Router, private _service: CatalogoService) {}
 
   ngOnInit(): void {
-    this._service.currentNewsItem.subscribe(
+    this._service.currentItemLibros.subscribe(
       (newsItem) => (this.newsItem = newsItem)
     );
   }
@@ -35,7 +35,6 @@ export class LibroComponent implements OnInit {
   }*/
 
   openDetalle(itemDataSend: any) {
-    this._service.changeNewsItem(itemDataSend);
-    this.router.navigate(['/catalogo/detalle-libro']);
+    this._service.openLibro(itemDataSend);
   }
 }

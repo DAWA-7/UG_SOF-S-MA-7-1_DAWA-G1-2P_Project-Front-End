@@ -42,4 +42,15 @@ img{
 
 i{
     font-size: 12px;
+    color: var(--sc-7);
 }
+
+.agotado{
+    width: 160px;
+    background-color: var(--tce-3);
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+  }

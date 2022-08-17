@@ -4,12 +4,16 @@ import { Book } from '../../interfaces/book';
 import { BehaviorSubject } from 'rxjs';
 import { mockDataCategoria } from 'src/assets/ts/MOCK_DATA_Libros';
 import { mockDataLibros } from 'src/assets/ts/MOCK_DATA_Libros';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class CatalogoService {
-  private newsItemSource = new BehaviorSubject<string>('default message');
-  currentNewsItem = this.newsItemSource.asObservable();
+  /*private newsItemSource = new BehaviorSubject<string>('default message');
+  currentNewsItem = this.newsItemSource.asObservable();*/
+
+  private sourceItemLibros = new BehaviorSubject<string>('default message');
+  currentItemLibros = this.sourceItemLibros.asObservable();
 
   categoria = 0;
   agotado = false;
@@ -18,7 +22,7 @@ export class CatalogoService {
 
   listLibros: Book[] = mockDataLibros;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   getLibro() {
     return this.listLibros.slice();
@@ -43,7 +47,7 @@ export class CatalogoService {
   }
 
   changeNewsItem(newsItem: any) {
-    this.newsItemSource.next(newsItem);
+    this.sourceItemLibros.next(newsItem);
   }
 
   filtrarCategoria(
@@ -87,4 +91,17 @@ export class CatalogoService {
       return false;
     }
   }*/
+  //#region Functions
+  changeItemLibros(newItemLibros: any) {
+    this.sourceItemLibros.next(newItemLibros);
+  }
+
+  openLibro(itemDataSend: any) {
+    this.changeItemLibros(itemDataSend);
+    var regexpReplaceSpace = / /g;
+    var regexpOnlyLetter = /[^a-zA-Z0-9 ]/g;
+    var newName = itemDataSend.title.replace(regexpOnlyLetter, '');
+    var newName = newName.replace(regexpReplaceSpace, '_');
+    this.router.navigate(['catalogo/detalle-libro/', newName]);
+  }
 }

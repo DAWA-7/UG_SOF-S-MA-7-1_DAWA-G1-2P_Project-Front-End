@@ -11,7 +11,7 @@
     <mat-card-actions>
         <div style="font-size: 20px; font-weight: bold; text-align: center">
             ${{InputLibros.precio.toFixed(2)}}
-            <button mat-button class="col-sm cart-comprar">
+            <button [disabled]="InputLibros.cantidad == 0" mat-button class="col-sm cart-comprar">
                 <i class="bi bi-cart-fill" style="font-size: 1.5rem"></i>
             </button>
         </div>
