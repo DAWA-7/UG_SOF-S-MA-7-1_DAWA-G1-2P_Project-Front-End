@@ -12,6 +12,7 @@ export class CatalogoService {
   currentNewsItem = this.newsItemSource.asObservable();
 
   categoria = 0;
+  agotado = false;
 
   listCategorias: Categoria[] = mockDataCategoria;
 
@@ -78,4 +79,12 @@ export class CatalogoService {
     console.log(nom?.nombre_categoria);
     return nom?.nombre_categoria;
   }
+
+  /*estaAgotado(cantidad: number) {
+    if (cantidad == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }*/
 }

@@ -30,6 +30,10 @@ export class LibroComponent implements OnInit {
     );
   }
 
+  /*hayLibros(cantidad: number) {
+    this._service.estaAgotado(cantidad);
+  }*/
+
   openDetalle(itemDataSend: any) {
     this._service.changeNewsItem(itemDataSend);
     this.router.navigate(['/catalogo/detalle-libro']);
