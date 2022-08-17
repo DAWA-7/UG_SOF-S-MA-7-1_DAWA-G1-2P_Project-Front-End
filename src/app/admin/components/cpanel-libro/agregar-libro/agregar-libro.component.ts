@@ -51,6 +51,7 @@ export class AgregarLibroComponent {
       descripcion: ['', Validators.required],
       precio: ['', Validators.required],
       fecha_publicacion: ['', Validators.required],
+      cantidad: ['', Validators.required],
       id_categoria: ['', Validators.required],
     });
 
@@ -74,6 +75,7 @@ export class AgregarLibroComponent {
         this.bookForm.controls['fecha_publicacion'].setValue(
           this.editarDatos.fecha_publicacion
         ),
+        this.bookForm.controls['cantidad'].setValue(this.editarDatos.cantidad),
         this.bookForm.controls['id_categoria'].setValue(
           this.editarDatos.id_categoria
         ); /*,
@@ -98,6 +100,7 @@ export class AgregarLibroComponent {
         descripcion: this.bookForm.value.descripcion,
         precio: this.bookForm.value.precio,
         fecha_publicacion: this.bookForm.value.fecha_publicacion,
+        cantidad: this.bookForm.value.cantidad,
         id_categoria: this.bookForm.value.id_categoria,
         imagen: 'this.bookForm.value.imagen',
       };
@@ -118,6 +121,7 @@ export class AgregarLibroComponent {
         descripcion: this.bookForm.value.descripcion,
         precio: this.bookForm.value.precio,
         fecha_publicacion: this.bookForm.value.fecha_publicacion,
+        cantidad: this.bookForm.value.cantidad,
         id_categoria: this.bookForm.value.id_categoria,
         imagen: 'this.bookForm.value.imagen',
       };

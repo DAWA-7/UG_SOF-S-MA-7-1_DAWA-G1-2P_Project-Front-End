@@ -27,3 +27,12 @@ img {
   .cart-comprar {
     color: var(--sc-7);
   }
+
+  .agotado{
+    background-color: var(--tce-3);
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+  }
