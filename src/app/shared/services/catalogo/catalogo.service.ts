@@ -100,7 +100,7 @@ export class CatalogoService {
     this.changeItemLibros(itemDataSend);
     var regexpReplaceSpace = / /g;
     var regexpOnlyLetter = /[^a-zA-Z0-9 ]/g;
-    var newName = itemDataSend.title.replace(regexpOnlyLetter, '');
+    var newName = itemDataSend.titulo.replace(regexpOnlyLetter, '');
     var newName = newName.replace(regexpReplaceSpace, '_');
     this.router.navigate(['catalogo/detalle-libro/', newName]);
   }
