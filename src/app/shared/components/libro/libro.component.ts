@@ -22,7 +22,7 @@ export class LibroComponent implements OnInit {
   @Input() InputLibros: any;
   newsItem: any;
 
-  constructor(private router: Router, private _service: CatalogoService) {}
+  constructor(private _service: CatalogoService) {}
 
   ngOnInit(): void {
     this._service.currentItemLibros.subscribe(
