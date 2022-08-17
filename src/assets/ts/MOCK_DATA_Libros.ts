@@ -6,7 +6,6 @@ export const mockDataCategoria = [
   { id_categoria: 5, nombre_categoria: 'Romance' },
   { id_categoria: 6, nombre_categoria: 'Terror' },
 ];
-
 export const mockDataLibros = [
   {
     id_libro: 1,
