@@ -24,61 +24,7 @@
 
     <!-- ↑ -->
 <!-- factura ↓ -->
-    <div class="factura">
-      <div>
-        <br />
-        <h1><b>Resumen del Carrito</b></h1>
-        <div class="row" style="text-align: left">
-          <div class="col-md-6"><b>TOTAL PRODUCTOS: 0</b></div>
-        </div>
-        <br />
-        <div class="row">
-          <div class="col-md-6" style="text-align: left">
-            <b>Precio sin impuestos:</b>
-          </div>
-          <div class="col-md-6 text-right">0.00$</div>
-        </div>
-        <br />
-        <div class="row">
-          <div class="col-md-6" style="text-align: left">
-            <b>Costo de Envio:</b>
-          </div>
-          <div class="col-md-6 text-right">00.00$</div>
-        </div>
-        <br />
-
-        <div class="row">
-          <div class="col-md-6" style="text-align: left">
-            <b>Servicio de Regalo</b>
-          </div>
-          <div class="col-md-6 text-right">00.00$</div>
-        </div>
-        <br />
-
-        <br />
-        <div class="row">
-          <div class="col-md-6" style="text-align: left">
-            <b>Total IVA 12%:</b>
-          </div>
-          <div class="col-md-6 text-right">0.00$</div>
-        </div>
-        <br />
-        <div class="row">
-          <div class="col-md-6" style="text-align: left">
-            <b>Total de la Orden:</b>
-          </div>
-          <div class="col-md-6 text-right">0.00$</div>
-        </div>
-      </div>
-      <br />
-      <br />
-      <div>
-        <button (click)="comprar()" type="button" class="btn btn-primary btn-lg" style="border-radius: 15px">
-          Comprar
-          <i class="bi bi-bag"></i>
-        </button>
-      </div>
-    </div>
+    <app-resum-carrito></app-resum-carrito>
     <!-- fin  div factura -->
   </div>
   <!-- ↑ -->
@@ -100,8 +46,8 @@
                 <p class="ps-3 textmuted fw-bold h6 mb-0">TOTAL A PAGAR</p>
                 <div class="precio">
                   <p class="h1 fw-bold d-flex">
-                    <span class="fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>119
-                    <span class="textmuted">.84</span>
+                    <span class="fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>
+                    <span class="textmuted">{{sumaTotal()}}</span>
                   </p>
                 </div>
               </div>

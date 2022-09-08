@@ -10,19 +10,41 @@ export class CarritoService {
   listLibros: Book[] = [];
   unidad: Carrito[] = []
   existe = false
-
-
+  constructor() { }
+  listPrecio = [0]
   //cantidad 
-
-  unidadData(){
-    
+  
+  getCantidad(){
+    return this.unidad
   }
   //↑
 
+  
+  pushprecio(precio: any){
+    this.listPrecio.push(precio)
+  }
 
+  
   addToCart(libros: Book){
     this.listLibros.push(libros)
   }
+
+
+  sumaPrecios(){
+    const sumAll = this.listPrecio.reduce((acc, item) =>{
+      return acc = acc + item
+    })
+    return Number(sumAll.toFixed(2))
+    
+  }
+  sumTotal(){
+    const iva = 0.12 * this.sumaPrecios()
+    const precioTotal = this.sumaPrecios() + iva
+    return Number(precioTotal.toFixed(2))
+  }
+  // deleteCard(libros: Book){
+  //   this.listLibros.splice(libros)
+  // }
 
   itemCount(){
     return this.listLibros.length
@@ -47,8 +69,11 @@ export class CarritoService {
   returnPrice(){
     
   }
+  
+
+
+
+  
+  
  
-  
-  
-  constructor() { }
 }

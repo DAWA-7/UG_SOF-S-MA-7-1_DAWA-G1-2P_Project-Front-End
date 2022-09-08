@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoService } from 'src/app/shared/services/carrito/carrito.service';
 
 @Component({
   selector: 'app-carrito-section',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoSectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartService: CarritoService) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,7 @@ export class CarritoSectionComponent implements OnInit {
     
   }
 
+
   finCompra(){
     const paySection = document.getElementById("paySection");
     const finalSection = document.getElementById("finalComp");
@@ -47,4 +49,12 @@ export class CarritoSectionComponent implements OnInit {
     finalSection!.style.display = "block"
   }
 
+
+  //precioSiguienteInterface
+  precioNextIn(){
+    return this.cartService.sumaPrecios()
+  }
+  sumaTotal(){
+    return this.cartService.sumTotal()
+  }
 }

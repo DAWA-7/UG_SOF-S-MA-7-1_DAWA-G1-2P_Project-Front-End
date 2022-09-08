@@ -1,0 +1,19 @@
+.factura {
+    background-color: var(--sc-9);
+    border-radius: 30px;
+    height: 430px;
+  }
+  
+  .row {
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: -10px;
+  }
+  
+  /* PAYMENTSECTION CSS */
+  .precio {
+    justify-content: center;
+    margin-top: 20px;
+    display: flex;
+  }
+  
