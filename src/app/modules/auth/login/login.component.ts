@@ -9,6 +9,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { WindowModelService } from '../../../shared/services/window-model.service';
 import { UsuarioService } from '../../../shared/services/usuario/usuario.service';
+import {AuthService} from "../../../shared/interfaces/Login/auth.service";
+import {ILogin} from "../../../shared/interfaces/Login/ILogin";
 
 @Component({
   selector: 'app-login',
@@ -18,13 +20,16 @@ import { UsuarioService } from '../../../shared/services/usuario/usuario.service
 export class LoginComponent {
   public frmLogin: FormGroup;
   public error: boolean = false;
+  public auth: AuthService;
 
   constructor(
     private service: WindowModelService,
     private router: Router,
     private _dataUser: UsuarioService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authC: AuthService,
   ) {
+    this.auth = authC;
     this.frmLogin = this.formBuilder.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required],
@@ -35,8 +40,22 @@ export class LoginComponent {
   Usuarios: any;*/
   ngOnInit(): void {}
 
-  onSubmit(usuario: string, password: String) {
-    var user = this._dataUser.getUserByCedula(usuario);
+  onSubmit(usuario: string, password: string) {
+    const login : ILogin = {
+      username: usuario,
+      password: password,
+    };
+
+    this.auth.login(login).subscribe((data:any) =>{
+      console.log(data)
+      localStorage.setItem('userName',usuario);
+      localStorage.setItem('toker_value',data);
+    });
+/*    if (value != null){
+      localStorage.setItem('userName',usuario);
+      localStorage.setItem('toker_value',value);
+    }*/
+    /*const user = this._dataUser.getUserByCedula(usuario);
     if (user != null && user.contrasenia == password) {
       this.router.navigate(['/home']);
       this.service.$modal.emit(user.usuario);
@@ -45,6 +64,6 @@ export class LoginComponent {
       setTimeout(() => {
         this.error = false;
       }, 5000);
-    }
+    }*/
   }
 }
