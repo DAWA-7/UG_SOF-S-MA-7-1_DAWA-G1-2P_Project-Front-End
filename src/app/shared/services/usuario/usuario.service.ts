@@ -9,13 +9,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UsuarioService {
 //para backend
 
-  
- 
 
 
-  
+
+
+
   baseUrl: string = "https://localhost:7257/api/sugerencias";
-  
+
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +24,6 @@ export class UsuarioService {
     const header = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization':  `bearer ${auth_token}`
-      
     })
     return this.http.get(this.baseUrl, {headers: header})
   }
