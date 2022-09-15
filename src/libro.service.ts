@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LibroService {
-  baseUrl: string = 'https://localhost:7257/api/Clientes/';
+  baseUrl: string = 'https://localhost:7257/api/Libros/';
   constructor(private http: HttpClient) {}
 
   getLibros() {
