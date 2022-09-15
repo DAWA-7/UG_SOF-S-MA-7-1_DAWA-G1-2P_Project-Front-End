@@ -1,15 +1,35 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { mockDataUsuarios } from 'src/assets/ts/MOCK_DATA_Usuarios';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
+//para backend
+
+  
+ 
+
+
+  
+  baseUrl: string = "https://localhost:7257/api/sugerencias";
+  
+
+  constructor(private http: HttpClient) {}
+
+  getData(){
+    let auth_token = localStorage.getItem('token_value');
+    const header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':  `bearer ${auth_token}`
+      
+    })
+    return this.http.get(this.baseUrl, {headers: header})
+  }
+  //↑
   ELEMENT_DATA: User[] = mockDataUsuarios;
-
-  constructor() {}
-
   getUsuario() {
     return this.ELEMENT_DATA.slice();
   }

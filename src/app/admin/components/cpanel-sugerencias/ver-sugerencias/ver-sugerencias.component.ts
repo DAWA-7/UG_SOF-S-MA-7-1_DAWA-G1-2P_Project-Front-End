@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {Sugerencia} from "../../../../shared/interfaces/sugerencia";
 import {MatDialog} from "@angular/material/dialog";
+import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
 
 
 @Component({
@@ -14,7 +15,15 @@ export class VerSugerenciasComponent implements OnInit {
   dataSource: any = [];
   displayedColumns: string[] = ['id_sugerencia', 'nombreLibro', 'autor', 'fecha', 'ci_solicitante', 'modificar']
 
-  constructor(public dialog: MatDialog) {
+  ngOnInit(): void {
+    this.dataSource = new MatTableDataSource<Sugerencia>(this.data as Sugerencia[]);
+    console.log(this.data);
+    this.serviceUs.getData().subscribe((datas)=>{
+      console.log(datas)
+    })
+  }
+
+  constructor(public dialog: MatDialog, private serviceUs: UsuarioService) {
   }
 
   data = [{
@@ -40,10 +49,7 @@ export class VerSugerenciasComponent implements OnInit {
     }
   ];
 
-  ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<Sugerencia>(this.data as Sugerencia[]);
-    console.log(this.data);
-  }
+ 
 
   deleteSuggestions(id: number) {
     const index = this.data.findIndex(obj => obj.id_sugerencia === id);
@@ -53,6 +59,10 @@ export class VerSugerenciasComponent implements OnInit {
     this.updateDataSource();
   }
 
+
+  showBack(){
+    console.log(this.serviceUs.getData())
+  }
   updateDataSource() {
     this.dataSource.data = this.data;
   }
