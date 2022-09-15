@@ -47,10 +47,16 @@ export class LoginComponent {
     };
 
     this.auth.login(login).subscribe((data:any) =>{
-      console.log(data)
       localStorage.setItem('userName',usuario);
       localStorage.setItem('toker_value',data);
+      this.router.navigate(['/home']);
+      this.service.$modal.emit(usuario);
+      return;
     });
+    this.error = true;
+    setTimeout(() => {
+      this.error = false;
+    }, 5000);
 /*    if (value != null){
       localStorage.setItem('userName',usuario);
       localStorage.setItem('toker_value',value);
