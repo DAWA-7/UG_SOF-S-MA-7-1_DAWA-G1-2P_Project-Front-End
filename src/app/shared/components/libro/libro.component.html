@@ -3,7 +3,7 @@
         class="card-img-top" />
     <mat-card-header>
         <mat-card-title>{{InputLibros.titulo}}</mat-card-title>
-        <mat-card-subtitle>{{InputLibros.autor}}</mat-card-subtitle>
+        <mat-card-subtitle>{{InputLibros.autor.nombreAutor}} {{InputLibros.autor.apellidoAutor}}</mat-card-subtitle>
     </mat-card-header>
     <div *ngIf="InputLibros.cantidad == 0" class="agotado">
         <p>Agotado</p>
