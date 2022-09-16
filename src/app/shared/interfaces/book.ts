@@ -1,8 +1,8 @@
 export interface Book {
   id_libro: number;
-  autor: Autor[];
+  autor: string;
   editorial: string;
-  categoria: Categoria[];
+  id_categoria: number;
   fecha_publicacion: Date;
   num_paginas: number;
   isbn: string;

@@ -98,20 +98,19 @@ export class CatalogoService {
     var id = this.listCategorias.find(
       (categ) => categ.id_categoria == categoria
     );
-    for (let i = 0; i < 6; i++) {
-      var libros = this.listLibros.filter(
-        (libro) => libro.categoria[i].id_categoria === id?.id_categoria
-      );
-      if (categoria > 0) {
-        libros;
-      } else if (categoria == 0) {
-        var libros = this.listLibros;
-      }
-      console.log(categoria);
-      console.log(id);
-      console.log(libros);
-      return libros;
+    var libros = this.listLibros.filter(
+      (libro) => libro.id_categoria === id?.id_categoria
+    );
+
+    if (categoria > 0) {
+      libros;
+    } else if (categoria == 0) {
+      var libros = this.listLibros;
     }
+    console.log(categoria);
+    console.log(id);
+    console.log(libros);
+    return libros;
   }
 
   mostrarCategoria(id: number) {
