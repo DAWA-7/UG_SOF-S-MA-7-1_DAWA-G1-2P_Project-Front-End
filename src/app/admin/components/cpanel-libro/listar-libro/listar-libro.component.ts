@@ -1,45 +1,59 @@
 import { CatalogoService } from 'src/app/shared/services/catalogo/catalogo.service';
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Book } from 'src/app/shared/interfaces/book';
 import { AgregarLibroComponent } from '../agregar-libro/agregar-libro.component';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {MatTableDataSource} from '@angular/material/table';
-import {Router} from '@angular/router';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-libro',
   templateUrl: './listar-libro.component.html',
-  styleUrls: ['./listar-libro.component.css']
+  styleUrls: ['./listar-libro.component.css'],
 })
-export class ListarLibroComponent{
+export class ListarLibroComponent {
+  listLibros: Book[] = [];
+  displayedColumns: string[] = [
+    'id_libro',
+    'titulo',
+    'editorial',
+    'autor',
+    'precio',
+    'opciones',
+  ];
+  titulo: string = '';
+  dataSource = new MatTableDataSource<any>();
 
-  listLibros: Book[] = []
-  displayedColumns: string[] = ['id_libro', 'titulo', 'editorial', 'autor', 'precio', 'opciones'];
-  titulo:string = "";
-  dataSource = new MatTableDataSource<any>;
-
-  constructor(private catalogService: CatalogoService, public dialog: MatDialog) {
-    this.titulo = "Agregar Libro";
+  constructor(
+    private catalogService: CatalogoService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {
+    this.titulo = 'Agregar Libro';
   }
 
-  openDialog(titulo:string) {
-    this.dialog.open(AgregarLibroComponent,{data:titulo});
+  openDialog(titulo: string) {
+    this.dialog.open(AgregarLibroComponent, { data: titulo });
   }
 
   closeDialog() {
-    this.dialog.closeAll()
+    this.dialog.closeAll();
   }
 
   ngOnInit(): void {
-    this.listLibros = this.catalogService.getLibro();
-    this.dataSource = new MatTableDataSource(this.listLibros);
-
+    this.catalogService.getLibros().subscribe(
+      (data: any) => {
+        this.dataSource = new MatTableDataSource<Book>(data as Book[]);
+        console.log(data);
+      },
+      (errorData) => (alert('No autorizado'), this.router.navigate(['/']))
+    );
   }
 
   editLibro(element: any) {
     this.dialog.open(AgregarLibroComponent, {
       data: element,
-    })
+    });
   }
 
   //para filtrar por nombre
@@ -48,10 +62,9 @@ export class ListarLibroComponent{
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  verDetalle(element: any){
+  verDetalle(element: any) {
     this.dialog.open(AgregarLibroComponent, {
-      data: element
-    })
+      data: element,
+    });
   }
-
 }

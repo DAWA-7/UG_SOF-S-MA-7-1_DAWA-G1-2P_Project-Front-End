@@ -18,8 +18,8 @@ import {
 })
 export class HomeComponent implements OnInit {
   //#region Variables
-  listCategorias: Categoria[] = mockDataCategoria;
-  listLibros: Book[] = mockDataLibros;
+  listCategorias: Categoria[] = [];
+  listLibros: Book[] = [];
   listNoticias: iNoticias[] = mockDataNoticias;
   listCarousel: { imgSrc: string; imgAlt: string; carousel: string }[] = [
     { imgSrc: 'slide1.png', imgAlt: 'feria', carousel: 'active' },
@@ -34,15 +34,13 @@ export class HomeComponent implements OnInit {
     private serviceNoticias: NoticiasService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._service.getLibro();
+  }
 
   //#region Functions
-  filtrarCategoria(
-    listLibros: Book[],
-    listCategoria: Categoria[],
-    categoria: number
-  ) {
-    return this._service.filtrarCategoria(listLibros, listCategoria, categoria);
+  filtrarCategoria(categoria: number) {
+    return this._service.filtrarCategoria(categoria);
   }
 
   openArticle(itemDataSend: any) {

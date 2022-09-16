@@ -1,8 +1,8 @@
 export interface Book {
   id_libro: number;
-  autor: string;
+  autor: Autor[];
   editorial: string;
-  id_categoria: number;
+  categoria: Categoria[];
   fecha_publicacion: Date;
   num_paginas: number;
   isbn: string;
@@ -23,7 +23,7 @@ export interface Editorial {
   id_estado: number;
 }
 
-export interface Autor_Libro {
+export interface Autor {
   id_autor_libro: number;
   nombre_autor: string;
   apellido_autor: string;
@@ -31,9 +31,24 @@ export interface Autor_Libro {
   id_estado: number;
 }
 
-export interface Autor_Libro_Libro {
+export interface Autor_Libro {
   id_autor_libro_libro: number;
   id_autor_libro: number;
+  id_libro: number;
+  fecha_registro: Date;
+  id_estado: number;
+}
+
+export interface Categoria {
+  id_categoria: number;
+  nombre_categoria: string;
+  /*fecha_registro: Date;
+  id_estado: number;*/
+}
+
+export interface Categoria_Libro {
+  id_categoria_libro: number;
+  id_categoria: number;
   id_libro: number;
   fecha_registro: Date;
   id_estado: number;
