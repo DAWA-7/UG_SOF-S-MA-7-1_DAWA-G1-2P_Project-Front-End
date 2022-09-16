@@ -4,6 +4,5 @@ export interface Sugerencia {
     isbn: string;
     autor: string;
     fecha: string; //Date
-    ci_solicitante: string;
-
+    ci_solicitante: number;
   }

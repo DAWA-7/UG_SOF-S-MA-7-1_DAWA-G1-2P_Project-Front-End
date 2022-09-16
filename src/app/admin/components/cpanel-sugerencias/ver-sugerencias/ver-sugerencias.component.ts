@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {Sugerencia} from "../../../../shared/interfaces/sugerencia";
 import {MatDialog} from "@angular/material/dialog";
-import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
+import {UsuarioService} from 'src/app/shared/services/usuario/usuario.service';
 
 
 @Component({
@@ -16,11 +16,11 @@ export class VerSugerenciasComponent implements OnInit {
   displayedColumns: string[] = ['id_sugerencia', 'nombreLibro', 'autor', 'fecha', 'ci_solicitante', 'modificar']
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<Sugerencia>(this.data as Sugerencia[]);
     console.log(this.data);
-    this.serviceUs.getData().subscribe((datas)=>{
-      console.log(datas)
+    this.serviceUs.getData().subscribe((datas: Object) => {
+      this.dataSource = new MatTableDataSource<Sugerencia>(datas as Sugerencia[]);
     })
+
   }
 
   constructor(public dialog: MatDialog, private serviceUs: UsuarioService) {
@@ -31,25 +31,24 @@ export class VerSugerenciasComponent implements OnInit {
     nombreLibro: "El principito",
     autor: "Una persona",
     fecha: "15/02/2014",
-    ci_solicitante: "0258974512",
+    ci_solicitante: 258974512,
   },
     {
       id_sugerencia: 2,
       nombreLibro: "DOS",
       autor: "otra persona",
       fecha: "16/02/2014",
-      ci_solicitante: "025894444512",
+      ci_solicitante: 25894444512,
     },
     {
       id_sugerencia: 3,
       nombreLibro: " TRES",
       autor: "Una persona",
       fecha: "17/02/2014",
-      ci_solicitante: "0258888512",
+      ci_solicitante: 258888512,
     }
   ];
 
- 
 
   deleteSuggestions(id: number) {
     const index = this.data.findIndex(obj => obj.id_sugerencia === id);
@@ -60,9 +59,10 @@ export class VerSugerenciasComponent implements OnInit {
   }
 
 
-  showBack(){
+  showBack() {
     console.log(this.serviceUs.getData())
   }
+
   updateDataSource() {
     this.dataSource.data = this.data;
   }
