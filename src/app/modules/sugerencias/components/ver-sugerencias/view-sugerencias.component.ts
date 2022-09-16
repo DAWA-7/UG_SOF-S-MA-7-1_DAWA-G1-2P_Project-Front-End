@@ -30,7 +30,7 @@ export class ViewSugerenciasComponent implements OnInit {
       nombreLibro: 'El principito',
       autor: 'Una persona',
       fecha: '2014/02/27',
-      ci_solicitante: '0258974512',
+      ci_solicitante: 258974512,
       isbn: '44-55-5-441',
     },
     {
@@ -38,7 +38,7 @@ export class ViewSugerenciasComponent implements OnInit {
       nombreLibro: 'DOS',
       autor: 'otra persona',
       fecha: '2014/02/27',
-      ci_solicitante: '025894444512',
+      ci_solicitante: 25894444512,
       isbn: '5515-1515-3565',
     },
     {
@@ -46,7 +46,7 @@ export class ViewSugerenciasComponent implements OnInit {
       nombreLibro: ' TRES',
       autor: 'Una persona',
       fecha: '2014/02/27',
-      ci_solicitante: '0258888512',
+      ci_solicitante: 258888512,
       isbn: '5858-12-35-15',
     },
   ];
