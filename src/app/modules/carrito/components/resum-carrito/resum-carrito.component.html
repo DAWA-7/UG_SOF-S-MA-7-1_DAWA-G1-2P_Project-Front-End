@@ -1,55 +1,79 @@
+<div class="card" style="border: none;">
+
+
 <div class="factura">
-    <div>
-      <br />
-      <h1><b>Resumen del Carrito</b></h1>
+    <div class="card-text">
+
+      <h1 class="h1"><b>Resumen del Carrito</b></h1>
       <div class="row" style="text-align: left">
-        <div class="col-md-6"><b>TOTAL PRODUCTOS: 0</b></div>
+        <div class="col-6"><b>TOTAL PRODUCTOS: 0</b></div>
       </div>
-      <br />
+ 
       <div class="row">
-        <div class="col-md-6" style="text-align: left">
+        <div class="col-6" style="text-align: left">
           <b>Precio sin impuestos:</b>
         </div>
-        <div class="col-md-6 text-right">{{prePrecio()}}$</div>
+        <div class="col-6 text-right">{{prePrecio()}}$</div>
       </div>
-      <br />
+  
       <div class="row">
-        <div class="col-md-6" style="text-align: left">
+        <div class="col-6" style="text-align: left">
           <b>Costo de Envio:</b>
         </div>
-        <div class="col-md-6 text-right">00.00$</div>
+        <div class="col-6 text-right">00.00$</div>
       </div>
-      <br />
+      
 
       <div class="row">
-        <div class="col-md-6" style="text-align: left">
+        <div class="col-6" style="text-align: left; margin-bottom: 8px;">
           <b>Servicio de Regalo</b>
         </div>
-        <div class="col-md-6 text-right">00.00$</div>
+        <div class="col-6 text-right" >00.00$</div>
       </div>
-      <br />
-
-      <br />
+     
       <div class="row">
-        <div class="col-md-6" style="text-align: left">
+        <div class="col-6" style="text-align: left">
           <b>Total IVA 12%:</b>
         </div>
-        <div class="col-md-6 text-right">{{totalSinIva()}}$</div>
+        <div class="col-6 text-right">{{totalSinIva()}}$</div>
       </div>
       <br />
-      <div class="row">
-        <div class="col-md-6" style="text-align: left">
+      <div class="row"  >
+        <div class="col-6" style="text-align: left">
           <b>Total de la Orden:</b>
         </div>
-        <div class="col-md-6 text-right">{{totalIva()}}$</div>
+        <div class="col-6 text-right">{{totalIva()}}$</div>
+      </div>
+      <div>
+        <br>
+        <button (click)="comprar()"  type="button" class="btn btn-primary btn-lg" style="border-radius: 15px">
+          Comprar
+          <i class="bi bi-bag"></i>
+        </button>
       </div>
     </div>
-    <br />
-    <br />
-    <div>
-      <button (click)="comprar()"  type="button" class="btn btn-primary btn-lg" style="border-radius: 15px">
-        Comprar
-        <i class="bi bi-bag"></i>
-      </button>
-    </div>
+ 
+   
   </div>
+</div>
+
+<style>
+  @media screen and (max-width: 480px) {
+    .factura{
+      width: 300px;
+    }
+
+    .card{
+      width: 2rem;
+    }
+    .row{
+      width: 98%;
+      margin-bottom: 6px;
+    }
+
+    .h1{
+      padding: 0px;
+    }
+    
+}
+</style>

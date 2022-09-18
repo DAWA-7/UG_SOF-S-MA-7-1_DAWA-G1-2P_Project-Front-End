@@ -7,25 +7,34 @@
 </ul>
 
 <div class="container-xl">
+  
+  <div class="row">
 
-  <!-- CARD SECTION -->
-  <div class="gridDiv" id="carSection" style="padding: 70px">
-    <div class="cardF">
-      <div>
-        <app-card-carrito></app-card-carrito>
-      </div>
-
-      <!-- FIN UN CARD -->
-
+    <!-- CARD SECTION -->
+    <div class="gridDiv" id="carSection" >
+      <div class="cardF">
+          <div class="col">
+            <app-card-carrito></app-card-carrito>
+          </div>
     
+          <!-- FIN UN CARD -->
+    
+        
+      </div>
+    
+        <!-- bootstrap -->
+    
+        <!-- ↑ -->
+    <!-- factura ↓ -->
+      <div class="col" style="width: 0px">
+    
+      
+        <app-resum-carrito></app-resum-carrito>
+    
+      </div>
+      <!-- fin  div factura -->
     </div>
-
-    <!-- bootstrap -->
-
-    <!-- ↑ -->
-<!-- factura ↓ -->
-    <app-resum-carrito></app-resum-carrito>
-    <!-- fin  div factura -->
+  
   </div>
   <!-- ↑ -->
 
@@ -154,3 +163,44 @@
   </div>
 
 </div>
+<style>
+  @media screen and (max-width: 1399px) {
+    .gridDiv{
+      gap: 3rem;
+      grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 1157px) {
+
+    .gridDiv{
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+      
+    }
+    
+  }
+
+
+/* 
+  @media screen and (max-width: 752) {
+
+  .gridDiv{
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    
+  }
+  
+} */
+@media screen and (max-width: 480px) {
+
+.cardF{
+  width: 300px;
+}
+
+
+}
+
+
+
+</style>

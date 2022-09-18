@@ -12,14 +12,17 @@ li {
   padding: 50px;
   background-color: var(--sc-9);
   border-radius: 30px;
-  width: 500px;
+  width: 416px;
   display: grid;
   place-content: center;
 }
 
 .gridDiv {
   display: grid;
-  grid-template-columns: 58% 35%;
+  
+  gap: 1rem;
+  /* grid-template-columns: 58% 35%; */
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
 }
 
 .factura {
