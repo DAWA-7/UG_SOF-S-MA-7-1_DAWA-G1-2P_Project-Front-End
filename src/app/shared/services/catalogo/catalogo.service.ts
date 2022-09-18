@@ -68,7 +68,9 @@ export class CatalogoService {
   }
 
   listarCategorias() {
-    return this.listCategorias;
+    var categorias = this.listCategorias;
+    console.log(categorias);
+    return categorias;
   }
 
   agregarLibro(data: Book) {

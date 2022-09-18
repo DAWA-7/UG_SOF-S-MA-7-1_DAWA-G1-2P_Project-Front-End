@@ -12,8 +12,8 @@
                     Recientes
                 </button>
 
-                <button mat-list-item *ngFor="let item of listarCategoria()" (click)="categoria = item.id_categoria">
-                    {{item.nombre_categoria}}
+                <button mat-list-item *ngFor="let categ of listarCategoria()" (click)="categoria = categ.id_categoria">
+                    {{categ.nombre_categoria}}
                 </button>
             </mat-action-list>
         </mat-sidenav>

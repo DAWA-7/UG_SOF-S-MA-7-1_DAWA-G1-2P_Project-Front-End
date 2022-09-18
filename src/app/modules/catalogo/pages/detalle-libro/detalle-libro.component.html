@@ -2,14 +2,15 @@
   <div class="row justify-content-md-center">
     <div class="col-lg-3">
       <div class="container color img">
-        <img src="assets/img/books/{{InputLibros.imagen}}" alt="{{InputLibros.titulo}}" height="450" width="250">
+        <img src="assets/img/books/{{InputLibros.imagen.nombreImagen}}" alt="{{InputLibros.titulo}}" height="450"
+          width="250">
       </div>
     </div>
 
     <div class="col-lg-5">
       <div class="container principal">
         <h1>{{InputLibros.titulo}}</h1>
-        <p>{{InputLibros.autor}}</p>
+        <p *ngFor="let autor of InputLibros.autor">{{autor.nombreAutor}} {{autor.apellidoAutor}}</p>
         <h2>${{InputLibros.precio.toFixed(2)}} <i>*incluye IVA</i></h2>
         <div *ngIf="InputLibros.cantidad == 0" class="agotado">
           <p>Agotado</p>
@@ -32,9 +33,9 @@
       <div class="container color">
         <h2>Detalles</h2>
         <p>
-          Editorial: {{InputLibros.editorial}}<br>
-          Fecha de publicación: {{format(InputLibros.fecha_publicacion)}}<br>
-          Páginas: {{InputLibros.num_paginas}}<br>
+          Editorial: {{InputLibros.editorial.nombreEditorial}}<br>
+          Fecha de publicación: {{format(InputLibros.fechaPublicacion)}}<br>
+          Páginas: {{InputLibros.numPaginas}}<br>
           ISBN: {{InputLibros.isbn}}<br>
         </p>
       </div>
@@ -43,7 +44,7 @@
     <div class="col-lg-5">
       <div class="container color">
         <h2>Categorías</h2>
-        <button class="button">{{mostrarCategoria(InputLibros.id_categoria)}}</button>
+        <button class="button" *ngFor="let categ of InputLibros.categoria">{{categ.nombreCategoria}}</button>
       </div>
     </div>
 
