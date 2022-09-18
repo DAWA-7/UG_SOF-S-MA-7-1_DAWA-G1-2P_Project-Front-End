@@ -18,9 +18,9 @@ export class CatalogoService {
 
   listLibros: Book[] = [];
 
-  API_LIBROS: string = 'https://localhost:7257/api/Libros/';
+  API_LIBROS: string = 'https://localhost:7263/api/Libros/';
 
-  API_CATEGORIAS: string = 'https://localhost:7257/GetCategorias/';
+  API_CATEGORIAS: string = 'https://localhost:7263/GetCategorias/';
 
   constructor(private router: Router, private http: HttpClient) {}
 
