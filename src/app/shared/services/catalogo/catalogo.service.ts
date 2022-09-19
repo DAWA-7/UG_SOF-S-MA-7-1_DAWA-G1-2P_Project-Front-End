@@ -1,5 +1,5 @@
 import { Categoria } from '../../interfaces/book';
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Book } from '../../interfaces/book';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CatalogoService {
   private sourceItemLibros = new BehaviorSubject<string>('default message');
   currentItemLibros = this.sourceItemLibros.asObservable();
+  @Output() disparadorDetalle: EventEmitter<any> = new EventEmitter();
 
   categoria = 0;
   agotado = false;
@@ -55,10 +56,39 @@ export class CatalogoService {
     //return this.listLibros.slice();
   }
 
+  getLibroDetalle(titulo: string): Observable<any> {
+    //var regexpReplaceSpace = / /g;
+    //var regexpOnlyLetter = /[^a-zA-ZñÑáéíóúÁÉÍÓÚ\s0-9 ]/g;
+    //var parametro = titulo.replace(regexpOnlyLetter, '');
+    //var parametro = parametro.replace(regexpReplaceSpace, '_');
+    this.router.navigate(['catalogo/detalle-libro/', titulo]);
+    return this.http.get('https://localhost:7263/' + titulo + '');
+  }
+
+  openLibro(titulo: string) {
+    var titulo = titulo.replace(/\s+/g, '-');
+    this.getLibroDetalle(titulo).subscribe(
+      (data) => {
+        this.listLibros = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  changeNewsItem(newsItem: any) {
+    this.sourceItemLibros.next(newsItem);
+  }
+
+  //#region Functions
+  changeItemLibros(newItemLibros: any) {
+    this.sourceItemLibros.next(newItemLibros);
+  }
+
   getCategoria() {
     this.getCategorias().subscribe(
       (data) => {
-        console.log(data);
         this.listCategorias = data;
       },
       (error) => {
@@ -67,11 +97,10 @@ export class CatalogoService {
     );
   }
 
-  listarCategorias() {
-    var categorias = this.listCategorias;
-    console.log(categorias);
-    return categorias;
-  }
+  /*getDetalle(id: number) {
+    this.getLibro;
+    this.findLibro(id);
+  }*/
 
   agregarLibro(data: Book) {
     this.listLibros.unshift(data);
@@ -87,29 +116,32 @@ export class CatalogoService {
     }
   }
 
-  findLibro(id: number) {
+  /*findLibro(id: number) {
     var libro = this.listLibros.find((libro) => libro.id_libro == id);
     return this.listLibros[id];
+  }*/
+  getFiltro(categ: number): Observable<any> {
+    //var categ = categ.replace(/\s+/g, '-');
+    this.router.navigate(['catalogo/detalle-libro/', categ]);
+    return this.http.get(
+      'https://localhost:7263//buscarCategoria/' + categ + ''
+    );
   }
 
-  changeNewsItem(newsItem: any) {
-    this.sourceItemLibros.next(newsItem);
-  }
-
-  filtrarCategoria(categoria: number) {
-    var id = this.listCategorias.find(
-      (categ) => categ.id_categoria == categoria
+  filtrarCategoria(id: number) {
+    var categorias = this.listCategorias.find(
+      (categ) => categ.id_categoria == id
     );
     var libros = this.listLibros.filter(
-      (libro) => libro.id_categoria === id?.id_categoria
+      (libro) => libro.id_categoria === categorias?.id_categoria
     );
-
-    if (categoria > 0) {
+    this.getFiltro(id);
+    if (id > 0) {
       libros;
-    } else if (categoria == 0) {
+    } else if (id == 0) {
+      this.getLibros();
       var libros = this.listLibros;
     }
-    console.log(categoria);
     console.log(id);
     console.log(libros);
     return libros;
@@ -129,16 +161,4 @@ export class CatalogoService {
     }
   }*/
   //#region Functions
-  changeItemLibros(newItemLibros: any) {
-    this.sourceItemLibros.next(newItemLibros);
-  }
-
-  openLibro(itemDataSend: any) {
-    this.changeItemLibros(itemDataSend);
-    var regexpReplaceSpace = / /g;
-    var regexpOnlyLetter = /[^a-zA-Z0-9 ]/g;
-    var newName = itemDataSend.titulo.replace(regexpOnlyLetter, '');
-    var newName = newName.replace(regexpReplaceSpace, '_');
-    this.router.navigate(['catalogo/detalle-libro/', newName]);
-  }
 }

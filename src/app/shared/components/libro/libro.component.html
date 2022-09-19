@@ -1,9 +1,9 @@
-<mat-card class="card-libro" (click)="openDetalle(InputLibros)">
+<mat-card class="card-libro" (click)="openDetalle(InputLibros.titulo)">
     <img mat-card-image src="assets/img/books/{{InputLibros.imagen.nombreImagen}}" alt="{{InputLibros.titulo}}"
         class="card-img-top" />
     <mat-card-header>
         <mat-card-title>{{InputLibros.titulo}}</mat-card-title>
-        <mat-card-subtitle *ngFor="let autor of InputLibros.autor">{{autor.nombreAutor}} {{autor.apellidoAutor}}
+        <mat-card-subtitle>{{InputLibros.autor.nombreAutor}} {{InputLibros.autor.apellidoAutor}}
         </mat-card-subtitle>
     </mat-card-header>
     <div *ngIf="InputLibros.cantidad == 0" class="agotado">

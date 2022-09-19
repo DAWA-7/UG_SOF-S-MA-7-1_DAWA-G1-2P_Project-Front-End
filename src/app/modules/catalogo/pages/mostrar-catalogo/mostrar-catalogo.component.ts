@@ -1,5 +1,4 @@
 import { CatalogoService } from 'src/app/shared/services/catalogo/catalogo.service';
-import { Categoria } from '../../../../shared/interfaces/book';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class MostrarCatalogoComponent implements OnInit {
   // #region Variables
   categoria = 0;
-  //listCategorias: Categoria[] = [];
+  listCategorias: any = this.listarCategoria();
   //listLibros: Book[] = [];
   // #endregion
 
@@ -19,7 +18,6 @@ export class MostrarCatalogoComponent implements OnInit {
   ngOnInit(): void {
     this._service.getLibro();
     this._service.getCategoria();
-    //console.log(this.listCategorias);
   }
 
   //#region Functions
@@ -28,7 +26,15 @@ export class MostrarCatalogoComponent implements OnInit {
   }
 
   listarCategoria() {
-    return this._service.listarCategorias();
+    this._service.getCategorias().subscribe(
+      (data) => {
+        this.listCategorias = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    return this.listCategorias;
   }
   //#endregion
 }

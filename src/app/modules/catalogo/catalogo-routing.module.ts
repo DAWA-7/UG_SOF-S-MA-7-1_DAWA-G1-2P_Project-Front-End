@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       { path: 'libros', component: MostrarCatalogoComponent },
       { path: 'detalle-libro', component: DetalleLibroComponent },
-      { path: 'detalle-libro/:id_libro', component: DetalleLibroComponent },
+      { path: 'detalle-libro/:titulo', component: DetalleLibroComponent },
       { path: '**', redirectTo: 'libros' },
     ],
   },

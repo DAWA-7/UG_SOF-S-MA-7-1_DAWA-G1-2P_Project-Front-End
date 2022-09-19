@@ -8,33 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./libro.component.css'],
 })
 export class LibroComponent implements OnInit {
-  /*@Input() id_libro = 0;
-  @Input() autor = '';
-  @Input() editorial = '';
-  @Input() id_categoria = 0;
-  @Input() fecha_publicacion = 12 / 12 / 21;
-  @Input() num_paginas = 0;
-  @Input() isbn = '';
-  @Input() descripcion = '';
-  @Input() titulo = '';
-  @Input() precio = 10.0;
-  @Input() imagen = '';*/
   @Input() InputLibros: any;
-  newsItem: any;
+  //newsItem: any;
 
   constructor(private _service: CatalogoService) {}
 
   ngOnInit(): void {
-    this._service.currentItemLibros.subscribe(
+    /*this._service.currentItemLibros.subscribe(
       (newsItem) => (this.newsItem = newsItem)
-    );
+    );*/
   }
 
   /*hayLibros(cantidad: number) {
     this._service.estaAgotado(cantidad);
   }*/
 
-  openDetalle(itemDataSend: any) {
-    this._service.openLibro(itemDataSend);
+  openDetalle(titulo: string) {
+    this._service.disparadorDetalle.emit({
+      data: this.InputLibros,
+    });
+    this._service.openLibro(titulo);
   }
 }

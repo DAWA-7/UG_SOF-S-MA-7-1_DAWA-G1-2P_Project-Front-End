@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { CatalogoService } from 'src/app/shared/services/catalogo/catalogo.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
@@ -10,35 +11,44 @@ import { CarritoService } from 'src/app/shared/services/carrito/carrito.service'
   styleUrls: ['./detalle-libro.component.css'],
 })
 export class DetalleLibroComponent implements OnInit {
+  /****** ESTA PARTE ESTA POR SER BORRADA*/
   InputLibros: any;
   newsItem: any;
+  public respuesta: any;
+  /****** */
+
+  listDetalle: any;
 
   constructor(
     private _service: CatalogoService,
     public datepipe: DatePipe,
+    private route: ActivatedRoute,
     private cartService: CarritoService
   ) {}
 
   ngOnInit(): void {
+    /****** ESTA PARTE ESTA POR SER BORRADA*/
     this._service.currentItemLibros.subscribe(
       (newsItem) => (this.newsItem = newsItem)
     );
-    /*this._service.currentNewsItem.subscribe(
-      (newCategoria) => (this.newCategoria = newCategoria)
-    );*/
     this.InputLibros = this.newsItem;
-    //this.InputCategorias = this.newCategoria;
-  }
+    /****** */
 
-  mostrarCategoria(id: number) {
-    return this._service.mostrarCategoria(id);
+    this._service.disparadorDetalle.subscribe((data) => {
+      this.listDetalle = data;
+      console.log(this.listDetalle);
+    });
+    /*this.route.paramMap.subscribe((paramMap: any) => {
+      const { params } = paramMap;
+      this.getDetalleLibro(params.variable);
+    });*/
   }
 
   format(fecha: Date) {
     return this.datepipe.transform(fecha, 'dd-MM-yyyy');
   }
 
-  //parte agreagada por Dávila↓
+  //parte agreagada por Dávila↓ REVISAR
   libros: Book | undefined;
   addCart() {
     console.log(this.InputLibros);
