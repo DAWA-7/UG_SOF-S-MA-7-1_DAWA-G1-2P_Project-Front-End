@@ -129,7 +129,7 @@ export class CatalogoService {
   }
 
   filtrarCategoria(id: number) {
-    var categorias = this.listCategorias.find(
+/*    var categorias = this.listCategorias.find(
       (categ) => categ.id_categoria == id
     );
     var libros = this.listLibros.filter(
@@ -143,8 +143,8 @@ export class CatalogoService {
       var libros = this.listLibros;
     }
     console.log(id);
-    console.log(libros);
-    return libros;
+    console.log(libros);*/
+    return null;
   }
 
   mostrarCategoria(id: number) {
