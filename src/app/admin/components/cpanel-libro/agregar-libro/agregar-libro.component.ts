@@ -23,21 +23,15 @@ export class AgregarLibroComponent {
   bookForm!: FormGroup;
   archivos: any = [];
 
-  listCategorias: Categoria[] = [
-    { id_categoria: 1, nombre_categoria: 'Ciencia Ficción' },
-    { id_categoria: 2, nombre_categoria: 'Clásicos' },
-    { id_categoria: 3, nombre_categoria: 'Histórica' },
-    { id_categoria: 4, nombre_categoria: 'Juvenil' },
-    { id_categoria: 5, nombre_categoria: 'Romance' },
-    { id_categoria: 6, nombre_categoria: 'Terror' },
-  ];
+  listCategorias: any = this._service.getCategorias();
 
   constructor(
     private formBuilder: FormBuilder,
     private _serviceBook: CatalogoService,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public editarDatos: any,
-    private dialogRef: MatDialogRef<AgregarLibroComponent>
+    private dialogRef: MatDialogRef<AgregarLibroComponent>,
+    public _service: CatalogoService
   ) {}
 
   ngOnInit(): void {
