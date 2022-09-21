@@ -122,29 +122,27 @@ export class CatalogoService {
   }*/
   getFiltro(categ: number): Observable<any> {
     //var categ = categ.replace(/\s+/g, '-');
-    this.router.navigate(['catalogo/detalle-libro/', categ]);
+    //this.router.navigate(['catalogo/', categ]);
     return this.http.get(
-      'https://localhost:7263//buscarCategoria/' + categ + ''
+      'https://localhost:7263/buscarCategoria/' + categ + ''
     );
   }
 
   filtrarCategoria(id: number) {
-/*    var categorias = this.listCategorias.find(
-      (categ) => categ.id_categoria == id
-    );
-    var libros = this.listLibros.filter(
-      (libro) => libro.id_categoria === categorias?.id_categoria
-    );
-    this.getFiltro(id);
     if (id > 0) {
-      libros;
+      this.getFiltro(id).subscribe(
+        (data) => {
+          this.listLibros = data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+      //libros;
     } else if (id == 0) {
-      this.getLibros();
-      var libros = this.listLibros;
+      this.getLibro();
     }
-    console.log(id);
-    console.log(libros);*/
-    return null;
+    return this.listLibros;
   }
 
   mostrarCategoria(id: number) {

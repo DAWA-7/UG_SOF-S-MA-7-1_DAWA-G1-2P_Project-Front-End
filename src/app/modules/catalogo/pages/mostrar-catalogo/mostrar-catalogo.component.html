@@ -8,10 +8,10 @@
     <mat-sidenav-container class="catalogo-container">
         <mat-sidenav class="sidenav" mode="side" opened>
             <mat-action-list>
-                <button mat-list-item (click)="categoria = 0">
+                <button mat-list-item (click)="filtrarCategoria(0)">
                     Recientes
                 </button>
-                <button mat-list-item *ngFor="let categ of listCategorias" (click)="categoria = categ.idCategoria">
+                <button mat-list-item *ngFor="let categ of listCategorias" (click)="filtrarCategoria(categ.id)">
                     {{categ.nombreCategoria}}
                 </button>
             </mat-action-list>
@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="libros row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
                     <!--[routerLink]="['/','post','libro.idLibro']"-->
-                    <app-libro class="col" [InputLibros]="libro" *ngFor="let libro of filtrarCategoria(categoria)">
+                    <app-libro class="col" [InputLibros]="libro" *ngFor="let libro of listLibros">
                         {{libro}}
                     </app-libro>
                 </div>

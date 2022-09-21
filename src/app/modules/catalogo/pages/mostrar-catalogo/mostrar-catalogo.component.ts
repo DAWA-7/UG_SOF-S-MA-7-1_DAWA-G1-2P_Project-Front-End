@@ -10,7 +10,7 @@ export class MostrarCatalogoComponent implements OnInit {
   // #region Variables
   categoria = 0;
   listCategorias: any = this.listarCategoria();
-  //listLibros: Book[] = [];
+  listLibros: any = [];
   // #endregion
 
   constructor(private _service: CatalogoService) {}
@@ -18,11 +18,14 @@ export class MostrarCatalogoComponent implements OnInit {
   ngOnInit(): void {
     this._service.getLibro();
     this._service.getCategoria();
+    this.listLibros = this.filtrarCategoria(0);
   }
 
   //#region Functions
   filtrarCategoria(categoria: number) {
-    return this._service.filtrarCategoria(categoria);
+    this.listLibros = this._service.filtrarCategoria(categoria);
+    console.log(this.listLibros);
+    return this.listLibros;
   }
 
   listarCategoria() {

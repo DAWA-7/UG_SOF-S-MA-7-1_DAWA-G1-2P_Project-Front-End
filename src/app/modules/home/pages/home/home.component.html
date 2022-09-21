@@ -45,7 +45,8 @@
       <h1>Novedades</h1>
 
       <div class="row row-cols-1 row-cols-sm-4 me-3">
-        <app-libro class="col" [InputLibros]="libro" *ngFor="let libro of filtrarCategoria(0) | slice:0:6"></app-libro>
+        <app-libro class="col" [InputLibros]="libro" *ngFor="let libro of this.listLibros | slice:0:6">{{libro}}
+        </app-libro>
       </div>
     </div>
     <!-- #endregion -->
