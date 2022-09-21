@@ -13,6 +13,7 @@ import { AgregarUserComponent } from './components/cpanel-user/agregar-user/agre
 import { ListarUserComponent } from './components/cpanel-user/listar-user/listar-user.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TableComponent } from './components/table/table.component';
+import { NoticiasAgregarComponent } from './components/cpanel-noticias/noticias-agregar/noticias-agregar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TableComponent } from './components/table/table.component';
     AgregarUserComponent,
     ListarUserComponent,
     TableComponent,
+    NoticiasAgregarComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
   providers: [
