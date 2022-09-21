@@ -27,17 +27,16 @@ export class DetalleLibroComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    /****** ESTA PARTE ESTA POR SER BORRADA*/
     this._service.currentItemLibros.subscribe(
       (newsItem) => (this.newsItem = newsItem)
     );
     this.InputLibros = this.newsItem;
-    /****** */
 
-    this._service.disparadorDetalle.subscribe((data) => {
+    /*this._service.disparadorDetalle.subscribe((data) => {
       this.listDetalle = data;
       console.log(this.listDetalle);
-    });
+      return this.listDetalle;
+    });*/
     /*this.route.paramMap.subscribe((paramMap: any) => {
       const { params } = paramMap;
       this.getDetalleLibro(params.variable);

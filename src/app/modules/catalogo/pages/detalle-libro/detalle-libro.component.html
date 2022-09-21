@@ -1,15 +1,16 @@
-<div *ngFor="let item of listDetalle">{{item}}
+<div>
   <div class="row justify-content-md-center">
     <div class="col-lg-3">
       <div class="container color img">
-        <img src="assets/img/books/{{item.imagen.nombreImagen}}" alt="{{listDetalle.titulo}}" height="450" width="250">
+        <img src="assets/img/books/{{InputLibros.imagen.nombreImagen}}" alt="{{InputLibros.titulo}}" height="450"
+          width="250">
       </div>
     </div>
 
     <div class="col-lg-5">
       <div class="container principal">
         <h1>{{InputLibros.titulo}}</h1>
-        <p *ngFor="let autor of InputLibros.autor">{{autor.nombreAutor}} {{autor.apellidoAutor}}</p>
+        <p>{{InputLibros.autor.nombreAutor}} {{InputLibros.autor.apellidoAutor}}</p>
         <h2>${{InputLibros.precio.toFixed(2)}} <i>*incluye IVA</i></h2>
         <div *ngIf="InputLibros.cantidad == 0" class="agotado">
           <p>Agotado</p>
@@ -43,7 +44,7 @@
     <div class="col-lg-5">
       <div class="container color">
         <h2>Categorías</h2>
-        <button class="button" *ngFor="let categ of InputLibros.categoria">{{categ.nombreCategoria}}</button>
+        <button class="button">{{InputLibros.categoria.nombreCategoria}}</button>
       </div>
     </div>
 
