@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -9,8 +10,10 @@ export class NoticiasService {
   //#region Variables
   private sourceItemNoticias = new BehaviorSubject<string>('default message');
   currentItemNoticias = this.sourceItemNoticias.asObservable();
+  baseUrl: string = 'https://localhost:7263/api/Noticias';
   //#region
-  constructor(private router: Router) {}
+
+  constructor(private router: Router, private http: HttpClient) {}
 
   //#region Functions
   changeItemNoticias(newItemNoticias: any) {
@@ -25,5 +28,10 @@ export class NoticiasService {
     var newName = newName.replace(regexpReplaceSpace, '_');
     this.router.navigate(['noticias/articulo/', newName]);
   }
+
+  APIGetNoticia() {
+    return this.http.get(this.baseUrl);
+  }
+
   //#endregion
 }

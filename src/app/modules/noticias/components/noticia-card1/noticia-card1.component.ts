@@ -29,5 +29,12 @@ export class NoticiaCard1Component implements OnInit {
   openArticle(itemDataSend: any) {
     this.serviceNoticias.openArticle(itemDataSend);
   }
+
+  TestAPI() {
+    this.serviceNoticias.APIGetNoticia().subscribe((data) => {
+      console.log(data);
+    });
+  }
+
   // #endregion
 }
