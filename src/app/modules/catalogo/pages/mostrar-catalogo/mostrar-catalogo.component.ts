@@ -24,7 +24,6 @@ export class MostrarCatalogoComponent implements OnInit {
   //#region Functions
   filtrarCategoria(categoria: number) {
     this.listLibros = this._service.filtrarCategoria(categoria);
-    console.log(this.listLibros);
     return this.listLibros;
   }
 

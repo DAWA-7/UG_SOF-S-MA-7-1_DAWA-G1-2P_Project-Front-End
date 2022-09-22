@@ -83,7 +83,7 @@ export class AgregarLibroComponent {
 
   agregarLibro() {
     if (!this.editarDatos && this.actionBtn === 'Guardar') {
-      console.log('a');
+
       const libro: Book = {
         id_libro: this.bookForm.value.id_libro,
         titulo: this.bookForm.value.titulo,
@@ -104,7 +104,7 @@ export class AgregarLibroComponent {
         })
       );
     } else if (this.actionBtn === 'Actualizar') {
-      console.log('b');
+
       const libro: Book = {
         id_libro: this.bookForm.value.id_libro,
         titulo: this.bookForm.value.titulo,

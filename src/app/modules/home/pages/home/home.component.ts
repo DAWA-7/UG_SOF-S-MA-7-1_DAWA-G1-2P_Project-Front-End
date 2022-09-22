@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this._service.getLibro();
-    console.log(this.listLibros);
   }
 
   //#region Functions
