@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit {
   ) {
     this.service.$modal.subscribe((valor) => {
       this.userName = valor;
-      console.log('valor: ' + valor);
     });
   }
 

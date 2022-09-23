@@ -3,7 +3,7 @@
     <div class="col-lg-3">
       <div class="container color img">
         <img src="assets/img/books/{{InputLibros.imagen.nombreImagen}}" alt="{{InputLibros.titulo}}" height="450"
-          width="250">
+             width="250">
       </div>
     </div>
 
@@ -15,8 +15,9 @@
         <div *ngIf="InputLibros.cantidad == 0" class="agotado">
           <p>Agotado</p>
         </div>
-        <button mat-flat-button color="primary" [disabled]="InputLibros.cantidad == 0" (click)="addCart()">
-          <mat-icon>add_shopping_cart</mat-icon>Agregar al carrito
+        <button mat-flat-button [color]=" isAddedCarrito ? 'accent' : 'primary'" [disabled]="InputLibros.cantidad == 0" (click)="addCart()">
+          <mat-icon>add_shopping_cart</mat-icon>
+          {{!isAddedCarrito ? "Agregar al carrito" : "Eliminar del carrito"}}
         </button>
       </div>
 

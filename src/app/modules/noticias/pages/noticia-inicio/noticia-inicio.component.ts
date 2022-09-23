@@ -15,6 +15,11 @@ export class NoticiaInicioComponent implements OnInit {
     this.stringToDate(a.date) > this.stringToDate(b.date) ? -1 : 1
   );
 
+  listNoticias2: iNoticias[] = mockDataNoticias.sort((a, b) =>
+    // sort array by date descending
+    this.stringToDate(a.date) > this.stringToDate(b.date) ? -1 : 1
+  );
+
   // returns a Set of: year of an object
   listYears = Array.from(
     new Set(
@@ -66,5 +71,6 @@ export class NoticiaInicioComponent implements OnInit {
     const dateObject = new Date(+year, +month, +day);
     return dateObject;
   }
+
   // #endregion
 }

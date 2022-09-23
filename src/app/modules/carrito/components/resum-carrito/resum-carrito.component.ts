@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Carrito } from 'src/app/shared/interfaces/carrito';
 import { CarritoService } from 'src/app/shared/services/carrito/carrito.service';
 
 @Component({
@@ -14,16 +15,34 @@ export class ResumCarritoComponent implements OnInit {
   listPrecios = this.cartService.listPrecio
   countBook = this.items.length
   
-  
+  carData = this.cartService.cartData
 
-  
-
+   
+  @Input() inputItem: any;
   
   ngOnInit(): void {
     
     // const elementos = this.items[this.countBook-1].precio
     // const ataPrice = this.listPrecios.push(elementos)
   }
+
+
+  //NUEVOS METOODOS
+
+  sumaNoTotal(){
+    var sumaNoT =0
+    for(var i = 0; i< this.inputItem.length; i++){
+       sumaNoT += this.inputItem[i].cantidad * this.inputItem[i].precio
+    }
+    
+    
+    return sumaNoT
+  }
+
+
+
+  //↑
+  
   comprar(){
     const carSection = document.getElementById("carSection");
     const paySection = document.getElementById("paySection");
