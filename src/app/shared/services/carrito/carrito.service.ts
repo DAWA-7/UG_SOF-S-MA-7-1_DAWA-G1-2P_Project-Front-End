@@ -1,7 +1,11 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Carrito } from '../../interfaces/carrito';
+import { mockDataLibros } from 'src/assets/ts/MOCK_DATA_Libros';
+import { Book } from '../../interfaces/book';
+import { find } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import {Book} from '../../interfaces/book';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+
 import {ICarrito, PostCarrito} from "../../interfaces/ICarrito";
 
 @Injectable({
@@ -9,14 +13,32 @@ import {ICarrito, PostCarrito} from "../../interfaces/ICarrito";
 })
 export class CarritoService {
   listLibros: Book[] = [];
-  unidad: ICarrito[] = []
-  existe = false;
+  unidad: Carrito[] = []
+  existe = false
+  constructor(private http: HttpClient) { }
+  urlCarrito = "https://localhost:7263/api/FACTURA_DETALLE/";
+  listPrecio = [0]
+
+
+  cartData: Carrito[] = [ 
+    {id:1, tituloLibro: "Los tres mosqueteros", nombreAutor: "Elza", ApellidoAutor: "Pato", cantidad: 2, precio: 3.00 },
+    {id:2, tituloLibro: "La Odisea", nombreAutor: "Homero", ApellidoAutor: "Simpson", cantidad: 1, precio: 5.00 }
+]
+  //cantidad 
+
+
+  //metodos nuevos para carrito ↓
+
+
+  //Nuevo ↑
+ 
+  //NEFIPART↓----------------------------------------------------------------------------------------------------------------------------------------------------
+
+  Iunidad: ICarrito[] = []
+
   private addCarrito: string = 'https://localhost:7263/api/carrito/add';
   private baseCarrito: string = 'https://localhost:7263/api/carrito/';
 
-  constructor(private http: HttpClient) {
-
-  }
 
   addNewElementCarrito(carrito: PostCarrito) {
     return this.http.post<ICarrito>(this.addCarrito, carrito);
@@ -38,8 +60,9 @@ export class CarritoService {
       'Authorization': `bearer ${auth_token}`
     });
   }
+  
 
-  listPrecio = [0]
+  // listPrecio = [0]
 
   //cantidad
 
@@ -49,6 +72,11 @@ export class CarritoService {
 
   //↑
 
+  cargarInfoApi(){
+    return this.http.get(this.urlCarrito)
+  }
+  
+  
 
   pushprecio(precio: any) {
     this.listPrecio.push(precio)

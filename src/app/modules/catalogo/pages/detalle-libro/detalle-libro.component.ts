@@ -64,6 +64,9 @@ export class DetalleLibroComponent implements OnInit {
       this.actualCarrito = null;
       this.isAddedCarrito = false;
     } else {
+      this.cartService.pushprecio(this.InputLibros.precio)
+      this.cartService.addToCart(this.InputLibros);
+      window.alert('Libro añadido a tu carrito');
       if (this.InputLibros != null) {
         const username = localStorage.getItem('userName');
         if (username != null) {
