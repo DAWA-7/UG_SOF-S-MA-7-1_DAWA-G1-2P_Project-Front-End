@@ -10,6 +10,12 @@ export class CarritoSectionComponent implements OnInit {
 
   constructor(private cartService: CarritoService) { }
 
+  carData = this.cartService.cartData
+
+  devVal(){
+    return this.carData
+  }
+
   ngOnInit(): void {
   }
 

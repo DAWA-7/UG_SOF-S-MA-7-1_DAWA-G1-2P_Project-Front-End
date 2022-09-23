@@ -48,13 +48,14 @@ export class DetalleLibroComponent implements OnInit {
   }
 
   //parte agreagada por Dávila↓ REVISAR
-  libros: Book | undefined;
+ 
   addCart() {
     console.log(this.InputLibros);
 
     if (this.cartService.exist(this.InputLibros)) {
       window.alert('Ya añadiste este libro a tu carrito');
     } else {
+      this.cartService.pushprecio(this.InputLibros.precio)
       this.cartService.addToCart(this.InputLibros);
       window.alert('Libro añadido a tu carrito');
     }

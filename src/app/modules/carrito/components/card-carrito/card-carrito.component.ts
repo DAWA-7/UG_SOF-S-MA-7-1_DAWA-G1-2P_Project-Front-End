@@ -14,44 +14,50 @@ export class CardCarritoComponent implements OnInit {
   newsItem: any;
   num = 0
   cantidadLibros = 1
-  idsList = []
+  idsList: any = []
+
+  cartData = this.cartService.cartData
   constructor(private cartService: CarritoService, private _service: CatalogoService) { }
 
   items = this.cartService.getItems()
   unidad = this.cartService.getCantidad()
 
   //obtengo el valor de la longitud del arreglo↓
-  countBook = this.items.length
+  countBook = this.idsList.length
 
   //obtengo los valores que se encuentran dentro del arreglo
   listPrecio = this.cartService.listPrecio
 
   ngOnInit(): void {
- 
+     this.idsList = this.cartService.getItems()
+     console.log(this.idsList)
+    // this.cartService.getItems.subscribe((resp: any)=>{
+    //   this.idsList = resp
+    //   console.log(this.idsList[0].libro)
+    // })
     
-  }
+  } 
   
   //para el boton que define la cantidad de libros 
     btnPlus(id: any){
 
-      const libro = this.items.find(libro => libro.id_libro === id)
+      const libro = this.cartData.find((libro: { id: any; }) => libro.id === id)
       var precioLibro = libro?.precio
       this.listPrecio.push(precioLibro!)
-      
       
     }
     
     findPrice(precio:any, id: any){
       //metodo para eliminar la tarjeta si presiona el botón menos y esta en cantidad = 1 
       this.num = this.priceRep(id)
-      const libro = this.items.find(libro => libro.id_libro === id)
-      const idLibro = this.items.indexOf(libro!)
+      const libro = this.cartData.find((libro: { id: any; }) => libro.id === id)
+      const idLibro = this.cartData.indexOf(libro!)
       
-      if(this.num == 1){
-        if(idLibro!=-1){
-          this.items.splice(idLibro, 1)
-        }
-      }
+      // if(this.num == 1){
+      //   if(idLibro!=-1){
+      //     this.cartData.splice(idLibro, 1)
+      //   }
+      // }
       //↑
       
       const findPrice = this.listPrecio.find(price => price === precio)
@@ -72,8 +78,8 @@ export class CardCarritoComponent implements OnInit {
     priceRep(id: any){
       //obtengo el precio de cada libro
       
-      const libro = this.items.find(libro => libro.id_libro === id)
-      const idLibro = this.items.indexOf(libro!)
+      const libro = this.cartData.find((libro: { id: any; }) => libro.id === id)
+      const idLibro = this.cartData.indexOf(libro!)
       var precioLibro = libro?.precio
       
       //↑
@@ -91,7 +97,7 @@ export class CardCarritoComponent implements OnInit {
 
   delAll(id: any){
     //obtengo el precio de cada libro
-    const libro = this.items.find(libro => libro.id_libro === id)
+    const libro = this.cartData.find((libro: { id: any; }) => libro.id === id)
     var precioLibro = libro?.precio
     //↑
     const resultado = this.listPrecio.reduce((prev:any, cur:any) => ((prev[cur] = prev[cur] + 1 || 1), prev), {})
@@ -115,10 +121,10 @@ export class CardCarritoComponent implements OnInit {
 
   delCard(id: any){
     //obtengo el precio de cada libro
-    const libro = this.items.find(libro => libro.id_libro === id)
-    const idLibro = this.items.indexOf(libro!)
+    const libro = this.cartData.find((libro: { id: any; }) => libro.id === id)
+    const idLibro = this.cartData.indexOf(libro!)
     if(idLibro!=-1){
-      this.items.splice(idLibro, 1)
+      this.cartData.splice(idLibro, 1)
     }
 
     
@@ -129,7 +135,26 @@ export class CardCarritoComponent implements OnInit {
     
   }
 
+
+  //Nueva parte Carrito
+
+  sumPrecio(cantidad: Carrito){
   
- 
+    cantidad.cantidad += 1
+
+    return  cantidad
+  }
+
+  restPrecio(cantidad: Carrito){
+
+    if(cantidad.cantidad >1){
+      cantidad.cantidad -= 1
+    }
+   
+
+    return  cantidad
+  }
+  
+  
 
 }
