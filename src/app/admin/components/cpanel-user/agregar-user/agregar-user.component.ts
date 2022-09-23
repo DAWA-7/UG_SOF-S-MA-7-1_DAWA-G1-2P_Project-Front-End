@@ -66,7 +66,7 @@ export class AgregarUserComponent implements OnInit {
           })
         );
     } else if (this.actionBtn === 'Actualizar') {
-      console.log('b');
+
       const user: User = {
         cedula: this.userForm.value.cedula,
         nombres: this.userForm.value.nombres,

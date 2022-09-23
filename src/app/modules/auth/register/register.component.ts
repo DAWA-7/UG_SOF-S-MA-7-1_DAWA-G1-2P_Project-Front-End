@@ -36,7 +36,6 @@ export class RegisterComponent {
       password: contrasena,
       email: email
     }
-    console.log("pasa")
     this.authC.register(register).subscribe((data:any) =>{
       this.isRegistered = true;
       this.service.$modal.emit(usuario);
