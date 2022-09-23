@@ -1,8 +1,11 @@
 export interface Sugerencia {
-    id_sugerencia: number;
-    nombreLibro: string;
-    isbn: string;
-    autor: string;
-    fecha: string; //Date
-    ci_solicitante: number;
+    NombrePersona: string;
+    ApellidoPersona: string;
+    Titulo: string;
+    Edicion: string;
+    Editorial: string;
+    FechaPublicacion: Date;
+    NombreAutor: string;
+    ApellidoAutor: string;
+
   }

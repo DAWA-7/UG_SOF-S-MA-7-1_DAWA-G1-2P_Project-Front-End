@@ -18,15 +18,32 @@ export class AgregarSugerenciaComponent implements OnInit {
     public dialogRef: MatDialogRef<AgregarSugerenciaComponent>
   ) {}
 
+  ngOnInit(): void {
+    this.ingresarSugerencia = new FormGroup({
+      titulo: new FormControl('', Validators.required),
+      edicion: new FormControl('', Validators.required),
+      editorial: new FormControl('', Validators.required),
+      fechaPublicacion: new FormControl('', Validators.required),
+      comentarios: new FormControl('', Validators.required),
+      nombreAutor: new FormControl('', Validators.required),
+      apellidoAutor: new FormControl('', Validators.required),
+    });
+  }
+
+
+
+  
   onSubmit() {
+
+    /*
     if (this.isEdit) {
       const sugerencia: Sugerencia = {
-        id_sugerencia: this.ingresarSugerencia.value.id,
-        nombreLibro: this.ingresarSugerencia.value.titulo,
-        isbn: this.ingresarSugerencia.value.isbn,
-        autor: this.ingresarSugerencia.value.autor,
-        fecha: this.ingresarSugerencia.value.fecha,
-        ci_solicitante: this.ingresarSugerencia.value.ci_solicitante,
+        //id_sugerencia: this.ingresarSugerencia.value.id,
+        //nombreLibro: this.ingresarSugerencia.value.titulo,
+        //isbn: this.ingresarSugerencia.value.isbn,
+        //autor: this.ingresarSugerencia.value.autor,
+        //fecha: this.ingresarSugerencia.value.fecha,
+        //ci_solicitante: this.ingresarSugerencia.value.ci_solicitante,
       };
       console.log('Sugrencia: ' + sugerencia);
       this.dialogRef.close({ data: sugerencia });
@@ -68,6 +85,6 @@ export class AgregarSugerenciaComponent implements OnInit {
         );
       return;
     }
-    this.isEdit = false;
+    this.isEdit = false;*/
   }
 }

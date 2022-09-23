@@ -1,34 +1,43 @@
 <div class="container">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-    <ng-container matColumnDef="id_sugerencia">
-      <th mat-header-cell *matHeaderCellDef> Id</th>
-      <td mat-cell *matCellDef="let element"> {{element.id_sugerencia}}</td>
+    <ng-container matColumnDef="nombrePersona">
+      <th mat-header-cell *matHeaderCellDef> Nombre Persona</th>
+      <td mat-cell *matCellDef="let element"> {{element.nombrePersona}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="nombreLibro">
+    <ng-container matColumnDef="apellidoPersona">
+      <th mat-header-cell *matHeaderCellDef> Apellido Persona</th>
+      <td mat-cell *matCellDef="let element" class='m-card-title'> {{element.apellidoPersona}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="titulo">
       <th mat-header-cell *matHeaderCellDef> Titulo</th>
-      <td mat-cell *matCellDef="let element" class='m-card-title'> {{element.nombreLibro}}</td>
+      <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
     </ng-container>
 
-
-    <ng-container matColumnDef="autor">
-      <th mat-header-cell *matHeaderCellDef> Autor</th>
-      <td mat-cell *matCellDef="let element" class='m-card-sub-title'> {{element.autor}} </td>
+    <ng-container matColumnDef="edicion">
+      <th mat-header-cell *matHeaderCellDef> Edicion</th>
+      <td mat-cell *matCellDef="let element" class='m-card-sub-title'> {{element.edicion}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef> Fecha</th>
-      <td mat-cell *matCellDef="let element" class='has_label_on_mobile'> {{formatDate(element.fecha)}}</td>
+    <ng-container matColumnDef="editorial">
+      <th mat-header-cell *matHeaderCellDef> Editorial</th>
+      <td mat-cell *matCellDef="let element" class='m-card-sub-title'> {{element.editorial}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="ci_solicitante">
-      <th mat-header-cell *matHeaderCellDef> CI Solicitante</th>
-      <td mat-cell *matCellDef="let element">{{element.ci_solicitante}}  </td>
+    <ng-container matColumnDef="fechaPublicacion">
+      <th mat-header-cell *matHeaderCellDef> Fecha Publicacion</th>
+      <td mat-cell *matCellDef="let element">{{formatDate(element.fechaPublicacion)}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="isbn">
-      <th mat-header-cell *matHeaderCellDef> ISBN</th>
-      <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+    <ng-container matColumnDef="nombreAutor">
+      <th mat-header-cell *matHeaderCellDef> Nombre Autor</th>
+      <td mat-cell *matCellDef="let element">{{element.nombreAutor}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellidoAutor">
+      <th mat-header-cell *matHeaderCellDef> Apellido Autor</th>
+      <td mat-cell *matCellDef="let element">{{element.apellidoAutor}}  </td>
     </ng-container>
 
     <ng-container matColumnDef="modificar">
