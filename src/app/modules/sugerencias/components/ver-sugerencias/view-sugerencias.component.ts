@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AgregarSugerenciaComponent } from '../agregar-sugerencia/agregar-sugerencia.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Sugerencia } from '../../../../shared/interfaces/sugerencia';
+import { SugerenciaService } from 'src/app/shared/services/sugerencias/sugerencia.service';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -12,57 +13,37 @@ import { DatePipe } from '@angular/common';
 })
 export class ViewSugerenciasComponent implements OnInit {
   dataSource: any = [];
-  displayedColumns: string[] = [
-    'id_sugerencia',
-    'nombreLibro',
-    'autor',
-    'fecha',
-    'ci_solicitante',
-    'isbn',
-    'modificar',
-  ];
+  displayedColumns: string[] = ['nombrePersona', 'apellidoPersona', 'titulo', 'edicion', 'editorial', 'fechaPublicacion','nombreAutor','apellidoAutor']
 
-  constructor(public dialog: MatDialog, public datepipe: DatePipe) {}
 
-  data = [
-    {
-      id_sugerencia: 1,
-      nombreLibro: 'El principito',
-      autor: 'Una persona',
-      fecha: '2014/02/27',
-      ci_solicitante: 258974512,
-      isbn: '44-55-5-441',
-    },
-    {
-      id_sugerencia: 2,
-      nombreLibro: 'DOS',
-      autor: 'otra persona',
-      fecha: '2014/02/27',
-      ci_solicitante: 25894444512,
-      isbn: '5515-1515-3565',
-    },
-    {
-      id_sugerencia: 3,
-      nombreLibro: ' TRES',
-      autor: 'Una persona',
-      fecha: '2014/02/27',
-      ci_solicitante: 258888512,
-      isbn: '5858-12-35-15',
-    },
-  ];
 
-  ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<Sugerencia>(
-      this.data as Sugerencia[]
-    );
+  constructor(public dialog: MatDialog, private service: SugerenciaService) {
   }
 
+
+  
+  ngOnInit(): void {
+    
+    this.service.getSugerencias().subscribe((data: any) => {
+      this.dataSource = new MatTableDataSource<Sugerencia>(data as Sugerencia[]);
+      console.log(data);
+    },(errorData)=> (alert("Usuario No Autorizado",
+    //this.router.navigate(['/'])
+    
+    )))
+
+  }
+  data = [
+
+  ];
+
+
   deleteSuggestions(id: number) {
-    const index = this.data.findIndex((obj) => obj.id_sugerencia === id);
+    /*const index = this.data.findIndex((obj) => obj.id_sugerencia === id);
     if (index > -1) {
       this.data.splice(index, 1);
     }
-    this.updateDataSource();
+    this.updateDataSource();*/
   }
 
   updateDataSource() {
@@ -70,7 +51,7 @@ export class ViewSugerenciasComponent implements OnInit {
   }
 
   editSuggest(element: any) {
-    const dialog = this.dialog.open(AgregarSugerenciaComponent, {
+    /*const dialog = this.dialog.open(AgregarSugerenciaComponent, {
       data: element,
     });
 
@@ -85,7 +66,7 @@ export class ViewSugerenciasComponent implements OnInit {
         this.data[index] = result;
         this.updateDataSource();
       }
-    });
+    });*/
   }
 
   padTo2Digits(num: number) {

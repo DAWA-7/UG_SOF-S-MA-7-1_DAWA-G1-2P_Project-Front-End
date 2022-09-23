@@ -3,6 +3,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Sugerencia} from "../../../../shared/interfaces/sugerencia";
 import {MatDialog} from "@angular/material/dialog";
 import {UsuarioService} from 'src/app/shared/services/usuario/usuario.service';
+import { SugerenciaService } from 'src/app/shared/services/sugerencias/sugerencia.service';
 
 
 @Component({
@@ -13,63 +14,70 @@ import {UsuarioService} from 'src/app/shared/services/usuario/usuario.service';
 
 export class VerSugerenciasComponent implements OnInit {
   dataSource: any = [];
-  displayedColumns: string[] = ['id_sugerencia', 'nombreLibro', 'autor', 'fecha', 'ci_solicitante', 'modificar']
+  displayedColumns: string[] = ['nombrePersona', 'apellidoPersona', 'titulo', 'edicion', 'editorial', 'fechaPublicacion','nombreAutor','apellidoAutor','modificar']
 
+
+
+  constructor(public dialog: MatDialog, private service: SugerenciaService) {
+  }
+
+
+  
   ngOnInit(): void {
-    console.log(this.data);
-    this.serviceUs.getData().subscribe((datas: Object) => {
-      this.dataSource = new MatTableDataSource<Sugerencia>(datas as Sugerencia[]);
-    })
+    
+    this.service.getSugerencias().subscribe((data: any) => {
+      this.dataSource = new MatTableDataSource<Sugerencia>(data as Sugerencia[]);
+      console.log(data);
+    },(errorData)=> (alert("Usuario No Autorizado"
+    //,this.router.navigate(['/'])
+    
+    )))
 
   }
+  data = [
 
-  constructor(public dialog: MatDialog, private serviceUs: UsuarioService) {
-  }
-
-  data = [{
-    id_sugerencia: 1,
-    nombreLibro: "El principito",
-    autor: "Una persona",
-    fecha: "15/02/2014",
-    ci_solicitante: 258974512,
-  },
-    {
-      id_sugerencia: 2,
-      nombreLibro: "DOS",
-      autor: "otra persona",
-      fecha: "16/02/2014",
-      ci_solicitante: 25894444512,
-    },
-    {
-      id_sugerencia: 3,
-      nombreLibro: " TRES",
-      autor: "Una persona",
-      fecha: "17/02/2014",
-      ci_solicitante: 258888512,
-    }
   ];
 
 
-  deleteSuggestions(id: number) {
-    const index = this.data.findIndex(obj => obj.id_sugerencia === id);
-    if (index > -1) {
-      this.data.splice(index, 1);
+
+ deleteSuggestions(id: number) {
+    //const index = this.data.findIndex(obj => obj.id_sugerencia === id);
+    //if (index > -1) {
+    //  this.data.splice(index, 1);
     }
-    this.updateDataSource();
-  }
+    //this.updateDataSource();
+  
 
 
   showBack() {
-    console.log(this.serviceUs.getData())
+   // console.log(this.service.getSugerencias)
   }
 
+ 
   updateDataSource() {
-    this.dataSource.data = this.data;
+    //this.dataSource.data = this.data;
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.service.getSugerenciasxtitulo(filterValue).subscribe((data:any) =>{
+      this.dataSource = new MatTableDataSource<Sugerencia>(data as Sugerencia[]);
+    }, (errorData)=> (alert("Usuario No Autorizado" )))
+    //,this.router.navigate(['/'])
+    //this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  padTo2Digits(num: number) {
+    return num.toString().padStart(2, '0');
+  }
+
+  formatDate(element: any) {
+    const date = new Date(element);
+    return [
+      this.padTo2Digits(date.getDate()),
+      this.padTo2Digits(date.getMonth() + 1),
+      date.getFullYear(),
+    ].join('/');
   }
 
 }
