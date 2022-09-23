@@ -44,7 +44,7 @@ export class ListarLibroComponent {
     this.catalogService.getLibros().subscribe(
       (data: any) => {
         this.dataSource = new MatTableDataSource<Book>(data as Book[]);
-        console.log(data);
+
       },
       (errorData) => (alert('No autorizado'), this.router.navigate(['/']))
     );

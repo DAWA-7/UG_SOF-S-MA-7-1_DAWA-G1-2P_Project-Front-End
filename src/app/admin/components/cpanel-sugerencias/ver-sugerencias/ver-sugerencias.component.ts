@@ -16,7 +16,7 @@ export class VerSugerenciasComponent implements OnInit {
   displayedColumns: string[] = ['id_sugerencia', 'nombreLibro', 'autor', 'fecha', 'ci_solicitante', 'modificar']
 
   ngOnInit(): void {
-    console.log(this.data);
+
     this.serviceUs.getData().subscribe((datas: Object) => {
       this.dataSource = new MatTableDataSource<Sugerencia>(datas as Sugerencia[]);
     })

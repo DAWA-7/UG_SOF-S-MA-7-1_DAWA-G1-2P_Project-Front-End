@@ -24,12 +24,12 @@
 
         <ng-container matColumnDef="editorial">
             <th mat-header-cell *matHeaderCellDef> Editorial </th>
-            <td mat-cell *matCellDef="let element"> {{element.editorial}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.editorial.nombreEditorial}} </td>
         </ng-container>
 
         <ng-container matColumnDef="autor">
             <th mat-header-cell *matHeaderCellDef> Autor </th>
-            <td mat-cell *matCellDef="let element"> {{element.autor}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.autor.nombreAutor}} {{element.autor.apellidoAutor}} </td>
         </ng-container>
 
         <ng-container matColumnDef="precio">

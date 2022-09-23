@@ -9,24 +9,26 @@ import { Router } from '@angular/router';
 })
 export class LibroComponent implements OnInit {
   @Input() InputLibros: any;
-  //newsItem: any;
+  newsItem: any;
 
-  constructor(private _service: CatalogoService) {}
+  constructor(private router: Router, private _service: CatalogoService) {}
 
   ngOnInit(): void {
-    /*this._service.currentItemLibros.subscribe(
+    this._service.currentItemLibros.subscribe(
       (newsItem) => (this.newsItem = newsItem)
-    );*/
+    );
   }
 
   /*hayLibros(cantidad: number) {
     this._service.estaAgotado(cantidad);
   }*/
 
-  openDetalle(titulo: string) {
-    this._service.disparadorDetalle.emit({
+  openDetalle(itemDataSend: any) {
+    this._service.changeNewsItem(itemDataSend);
+    this.router.navigate(['catalogo/detalle-libro/']);
+    /*this._service.disparadorDetalle.emit({
       data: this.InputLibros,
     });
-    this._service.openLibro(titulo);
+    this._service.openLibro(titulo);*/
   }
 }
