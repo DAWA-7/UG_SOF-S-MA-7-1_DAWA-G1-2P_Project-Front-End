@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { mockDataNoticias } from 'src/assets/ts/MOCK_DATA_Noticias';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +11,16 @@ export class NoticiasService {
   //#region Variables
   private sourceItemNoticias = new BehaviorSubject<string>('default message');
   currentItemNoticias = this.sourceItemNoticias.asObservable();
-  baseUrl: string = 'https://localhost:7263/api/Noticias';
+
+  UrlGetDatosNoticias: string = 'https://localhost:7263/GetDatosNoticias';
+
   //#region
 
   constructor(private router: Router, private http: HttpClient) {}
 
   //#region Functions
+  getDataArticle() {}
+
   changeItemNoticias(newItemNoticias: any) {
     this.sourceItemNoticias.next(newItemNoticias);
   }
@@ -29,8 +34,9 @@ export class NoticiasService {
     this.router.navigate(['noticias/articulo/', newName]);
   }
 
+  // API ----------------------------------------------------------
   APIGetNoticia() {
-    return this.http.get(this.baseUrl);
+    return this.http.get(this.UrlGetDatosNoticias);
   }
 
   //#endregion
