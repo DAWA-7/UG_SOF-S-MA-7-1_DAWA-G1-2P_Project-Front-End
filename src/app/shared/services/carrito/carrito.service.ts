@@ -132,7 +132,7 @@ export class CarritoService {
   // }
 
   itemCount() {
-    return this.listLibros.length
+    return this.cartData.length
   }
 
   getItems() {
