@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { iNoticias } from 'src/app/shared/interfaces/noticias';
 import { NoticiasService } from 'src/app/shared/services/noticias/noticias.service';
 import { mockDataNoticias } from 'src/assets/ts/MOCK_DATA_Noticias';
@@ -27,7 +28,9 @@ export class NoticiasListarComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private serviceNoticias: NoticiasService
+    private serviceNoticias: NoticiasService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -67,6 +70,22 @@ export class NoticiasListarComponent implements OnInit {
     this.dialog.open(NoticiasAgregarComponent, {
       data: { formTitle: title, formElement: element },
     });
+  }
+
+  eliminarNoticia(element: any) {
+    var confirm = window.confirm(
+      'Seguro desea borrar la noticia: ' + element.id
+    );
+
+    if (confirm) {
+      this.serviceNoticias.APIDeleteNoticia(element.id).subscribe();
+
+      this.router.navigate(['/cpanel/noticias']);
+      let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
+    }
   }
 
   //#endregion

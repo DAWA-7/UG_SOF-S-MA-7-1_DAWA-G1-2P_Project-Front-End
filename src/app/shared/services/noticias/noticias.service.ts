@@ -13,6 +13,7 @@ export class NoticiasService {
   currentItemNoticias = this.sourceItemNoticias.asObservable();
 
   UrlGetDatosNoticias: string = 'https://localhost:7263/GetDatosNoticias';
+  UrlPutDelete: string = 'https://localhost:7263/GetDeleteNoticia/';
 
   //#region
 
@@ -37,6 +38,10 @@ export class NoticiasService {
   // API ----------------------------------------------------------
   APIGetNoticia() {
     return this.http.get(this.UrlGetDatosNoticias);
+  }
+
+  APIDeleteNoticia(id: number) {
+    return this.http.get(this.UrlPutDelete + id + '');
   }
 
   //#endregion

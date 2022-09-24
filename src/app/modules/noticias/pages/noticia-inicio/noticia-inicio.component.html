@@ -1,7 +1,7 @@
 <div class="container-xl">
 
   <mat-form-field>
-    <mat-label>Filtro</mat-label>
+    <mat-label>Filtro por Título</mat-label>
     <input matInput type="text" appearance="outline" placeholder="Búsqueda global" #input [(ngModel)]="searchTitle">
     <button *ngIf="searchTitle" matSuffix mat-icon-button aria-label="Clear" (click)="searchTitle=''">
       <mat-icon>close</mat-icon>
