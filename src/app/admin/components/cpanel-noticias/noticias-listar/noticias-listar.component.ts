@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { iNoticias } from 'src/app/shared/interfaces/noticias';
+import { NoticiasService } from 'src/app/shared/services/noticias/noticias.service';
 import { mockDataNoticias } from 'src/assets/ts/MOCK_DATA_Noticias';
+import { NoticiasAgregarComponent } from '../noticias-agregar/noticias-agregar.component';
 
 @Component({
   selector: 'app-noticias-listar',
@@ -11,16 +13,11 @@ import { mockDataNoticias } from 'src/assets/ts/MOCK_DATA_Noticias';
 })
 export class NoticiasListarComponent implements OnInit {
   //#region Variables
-  dataSource = new MatTableDataSource<any>;
+  dataSource = new MatTableDataSource<any>();
+  listNewsAPI: any;
   listNews: iNoticias[] = [];
-  displayedColumns: string[] = [
-    'id',
-    'title',
-    'author',
-    'date', 
-    'opciones',
-  ];
-  displayedColumns2: {nameInterface: string, nameToShow: string}[] = [
+  displayedColumns: string[] = ['id', 'title', 'author', 'date', 'opciones'];
+  displayedColumns2: { nameInterface: string; nameToShow: string }[] = [
     { nameInterface: 'id', nameToShow: 'ID' },
     { nameInterface: 'title', nameToShow: 'Título' },
     { nameInterface: 'author', nameToShow: 'Autor' },
@@ -28,17 +25,49 @@ export class NoticiasListarComponent implements OnInit {
   ];
   //#endregion
 
-  constructor(private dialog: MatDialog ) {}
+  constructor(
+    private dialog: MatDialog,
+    private serviceNoticias: NoticiasService
+  ) {}
 
   ngOnInit(): void {
-    this.listNews = mockDataNoticias;
-    this.dataSource = new MatTableDataSource (this.listNews)
+    this.serviceNoticias.APIGetNoticia().subscribe((data) => {
+      this.listNewsAPI = data;
+      this.listNews = this.listNewsAPI;
+      console.log(this.listNewsAPI);
+      console.log(this.listNews);
+      this.dataSource = new MatTableDataSource(this.listNews);
+    });
+    //this.listNews = mockDataNoticias;
+    //this.dataSource = new MatTableDataSource(this.listNews);
   }
 
   //#region Functions
-  openDialog() {}
+  openDialog(title: string) {
+    this.dialog.open(NoticiasAgregarComponent, { data: { formTitle: title } });
+  }
 
-  applyFilter(event: Event) {}
+  closeDialog() {
+    this.dialog.closeAll();
+  }
+
+  applyFilter(event: Event) {
+    // filer by name
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  detalleNoticia(element: any, title: string) {
+    this.dialog.open(NoticiasAgregarComponent, {
+      data: { formTitle: title, formElement: element },
+    });
+  }
+
+  editarNoticia(element: any, title: string) {
+    this.dialog.open(NoticiasAgregarComponent, {
+      data: { formTitle: title, formElement: element },
+    });
+  }
 
   //#endregion
 }

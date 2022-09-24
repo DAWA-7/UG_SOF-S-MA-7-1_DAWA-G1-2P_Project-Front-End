@@ -20,7 +20,9 @@ export class HomeComponent implements OnInit {
   //#region Variables
   listCategorias: Categoria[] = [];
   listLibros: any = this.listarLibros();
-  listNoticias: iNoticias[] = mockDataNoticias;
+  listNoticiasAPI: any;
+  listNoticias: iNoticias[] = [];
+  //listNoticias: iNoticias[] = mockDataNoticias;
   listCarousel: { imgSrc: string; imgAlt: string; carousel: string }[] = [
     { imgSrc: 'slide1.png', imgAlt: 'feria', carousel: 'active' },
     { imgSrc: 'slide2.png', imgAlt: 'descuento', carousel: '' },
@@ -36,6 +38,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this._service.getLibro();
+    this.serviceNoticias.APIGetNoticia().subscribe((data) => {
+      this.listNoticiasAPI = data;
+      this.listNoticias = this.listNoticiasAPI;
+    });
   }
 
   //#region Functions

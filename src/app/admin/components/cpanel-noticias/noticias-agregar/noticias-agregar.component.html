@@ -1,1 +1,107 @@
-<p>noticias-agregar works!</p>
+<h1 mat-dialog-title>{{formTitle}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="noticiaForm" (ngSubmit)="agregarNoticia()">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 100px">
+          <mat-label>ID</mat-label>
+          <input formControlName="id_libro" type="number" matInput #id_libro />
+        </mat-form-field>
+        <br />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Título</mat-label>
+          <input matInput formControlName="titulo" type="text" placeholder="Inserte el título" #titulo />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 500px">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput formControlName="descripcion" type="text" placeholder="Inserte la descripción" rows="8" cols="40" #descripcion></textarea>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field appearance="fill">
+          <mat-label>Categoría</mat-label>
+          <mat-select formControlName="id_categoria">
+
+          </mat-select>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>ISBN</mat-label>
+          <input formControlName="isbn" type="number" matInput placeholder="Inserte el ISBN(13)" #isbn />
+        </mat-form-field>
+        <br />
+      </div>
+      <div class="col">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Autor</mat-label>
+          <input formControlName="autor" type="text" matInput placeholder="Inserte el autor" #autor />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Editorial</mat-label>
+          <input formControlName="editorial" matInput placeholder="Inserte la editorial" #editorial />
+        </mat-form-field>
+        <br />
+
+        <div class="row">
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 200px">
+            <mat-label>Precio</mat-label>
+            <input formControlName="precio" type="number" matInput placeholder="Inserte el precio" #precio />
+          </mat-form-field>
+          <br />
+
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 250px">
+            <mat-label>Número de páginas</mat-label>
+            <input formControlName="num_paginas" type="number" matInput placeholder="Inserte el total de páginas" #num_paginas />
+          </mat-form-field>
+          <br />
+        </div>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Fecha de Publicación</mat-label>
+          <input formControlName="fecha_publicacion" type="date" matInput placeholder="Inserte la fecha de publicación" #fecha_publicacion />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 200px">
+          <mat-label>Cantidad</mat-label>
+          <input formControlName="cantidad" type="number" matInput placeholder="Inserte la cantidad" #cantidad />
+        </mat-form-field>
+        <br />
+
+        <!--
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Imagen</mat-label>
+                    <input formControlName="imagen" type="file" accept=".jpg,.png" class="button"
+                        (change)="uploadImage($event)" #imagen />
+                </mat-form-field>
+                <br>
+
+                <mat-form-field>
+                    <div>
+                        <img [src]="archivos[0]" alt="">
+                    </div>
+                </mat-form-field>
+                -->
+      </div>
+    </div>
+
+    <div class="divBtnModificar">
+      <button type="submit" [disabled]="noticiaForm.invalid" mat-raised-button color="primary">
+        {{ actionBtn }}
+      </button>
+      <button type="reset" style="margin-left: 8px" mat-raised-button color="warn" (click)="closeDialog()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

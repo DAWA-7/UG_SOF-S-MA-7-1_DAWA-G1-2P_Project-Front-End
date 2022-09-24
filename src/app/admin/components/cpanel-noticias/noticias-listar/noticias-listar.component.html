@@ -3,7 +3,7 @@
   <div class="row">
 
     <div class="col-6 col-sm-4 p-3">
-      <button mat-raised-button color="accent" (click)="openDialog()">Agregar Noticia</button>
+      <button mat-raised-button color="accent" (click)="openDialog('Agregar Noticia')">Agregar Noticia</button>
     </div>
 
     <div class="col">
@@ -27,11 +27,11 @@
       <td mat-cell *matCellDef="let element">
         <button mat-icon-button [matMenuTriggerFor]="menu" #buttonmenu>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item (click)="detalleNoticia(element, 'Detalle Noticia')">
               <mat-icon>visibility</mat-icon>
               <span>Ver detalle</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="editarNoticia(element, 'Editar Noticia')">
               <mat-icon>edit</mat-icon>
               <span>Editar</span>
             </button>
