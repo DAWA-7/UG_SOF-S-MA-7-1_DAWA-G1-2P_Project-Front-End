@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CarritoService } from 'src/app/shared/services/carrito/carrito.service';
 
 @Component({
@@ -11,10 +11,37 @@ export class CarritoSectionComponent implements OnInit {
   constructor(private cartService: CarritoService) { }
 
   carData = this.cartService.cartData
-
+  @Input() inputItem: any;
   devVal(){
     return this.carData
   }
+
+
+  
+  //NUEVOS METOODOS
+
+  sumaNoTotal(){
+    var sumaNoT =0
+    for(var i = 0; i< this.inputItem.length; i++){
+       sumaNoT += this.inputItem[i].cantidad * this.inputItem[i].precio
+    }
+    
+    
+    return sumaNoT
+  }
+
+  iva(){
+    var iva = this.sumaNoTotal() * 0.12
+    return iva.toFixed(2)
+  }
+
+  sumaTotal(){
+    var sumaTotal = Number(this.sumaNoTotal()) + Number(this.iva())
+    return sumaTotal.toFixed(2)
+  }
+
+
+  //↑
 
   ngOnInit(): void {
   }
@@ -60,7 +87,7 @@ export class CarritoSectionComponent implements OnInit {
   precioNextIn(){
     return this.cartService.sumaPrecios()
   }
-  sumaTotal(){
-    return this.cartService.sumTotal()
-  }
+  // sumaTotal(){
+  //   return this.cartService.sumTotal()
+  // }
 }
