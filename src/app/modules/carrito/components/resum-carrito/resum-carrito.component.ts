@@ -39,7 +39,15 @@ export class ResumCarritoComponent implements OnInit {
     return sumaNoT
   }
 
+  iva(){
+    var iva = this.sumaNoTotal() * 0.12
+    return iva.toFixed(2)
+  }
 
+  sumaTotal(){
+    var sumaTotal = Number(this.sumaNoTotal()) + Number(this.iva())
+    return sumaTotal.toFixed(2)
+  }
 
   //↑
   

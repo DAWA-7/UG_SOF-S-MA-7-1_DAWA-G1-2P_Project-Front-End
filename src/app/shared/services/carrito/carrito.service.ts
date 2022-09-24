@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Carrito } from '../../interfaces/carrito';
 import { mockDataLibros } from 'src/assets/ts/MOCK_DATA_Libros';
 import { Book } from '../../interfaces/book';
@@ -18,7 +18,7 @@ export class CarritoService {
   constructor(private http: HttpClient) { }
   urlCarrito = "https://localhost:7263/api/FACTURA_DETALLE/";
   listPrecio = [0]
-
+  @Input() inputItem: any;
 
   cartData: Carrito[] = [ 
     {id:1, tituloLibro: "Los tres mosqueteros", nombreAutor: "Elza", ApellidoAutor: "Pato", cantidad: 2, precio: 3.00 },
@@ -28,6 +28,31 @@ export class CarritoService {
 
 
   //metodos nuevos para carrito ↓
+  devVal(){
+    return this.inputItem
+  
+  }
+
+  sumaNoTotal(){
+    var sumaNoT =0
+    for(var i = 0; i< this.inputItem.length; i++){
+       sumaNoT += this.inputItem[i].cantidad * this.inputItem[i].precio
+    }
+    
+    
+    return sumaNoT
+  }
+
+  iva(){
+    var iva = this.sumaNoTotal() * 0.12
+    return iva.toFixed(2)
+  }
+
+  sumaTotal(){
+    var sumaTotal = Number(this.sumaNoTotal()) + Number(this.iva())
+    return sumaTotal
+  }
+
 
 
   //Nuevo ↑
@@ -107,7 +132,7 @@ export class CarritoService {
   // }
 
   itemCount() {
-    return this.listLibros.length
+    return this.cartData.length
   }
 
   getItems() {
