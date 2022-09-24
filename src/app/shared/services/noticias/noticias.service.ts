@@ -12,8 +12,8 @@ export class NoticiasService {
   private sourceItemNoticias = new BehaviorSubject<string>('default message');
   currentItemNoticias = this.sourceItemNoticias.asObservable();
 
-  UrlGetDatosNoticias: string = 'https://localhost:7263/GetDatosNoticias';
-  UrlPutDelete: string = 'https://localhost:7263/GetDeleteNoticia/';
+  UrlGetDatosNoticias: string = 'http://localhost:8080/GetDatosNoticias';
+  UrlPutDelete: string = 'http://localhost:8080/GetDeleteNoticia/';
 
   //#region
 
